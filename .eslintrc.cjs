@@ -31,6 +31,7 @@ module.exports = {
     {
       "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
       "rules": {
+        'linebreak-style': ['error', 'unix'],
         // override "simple-import-sort" config
         "simple-import-sort/imports": [
           "error",
