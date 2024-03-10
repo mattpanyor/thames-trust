@@ -5,6 +5,11 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [react()],
   server: { host: true },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/tests/setup.js'
+  },
   resolve: {
     alias: {
       src: '/src'
