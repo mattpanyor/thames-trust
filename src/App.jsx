@@ -1,13 +1,39 @@
-import NavbarSidebarLayout from 'src/layouts/NavbarSidebarLayout.jsx';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ErrorPage from 'src/ErrorPage.jsx';
+import { Accounts, Dashboard, Settings, Statements, Transactions, Users } from 'src/routes';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Dashboard />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: '/users',
+    element: <Users />
+  },
+  {
+    path: '/accounts',
+    element: <Accounts />
+  },
+  {
+    path: '/transactions',
+    element: <Transactions />
+  },
+  {
+    path: '/statements',
+    element: <Statements />
+  },
+  {
+    path: '/settings',
+    element: <Settings />
+  }
+]);
 
 function App() {
   return (
     <>
-      <NavbarSidebarLayout>
-        <div className="mb-6 flex flex-wrap items-center justify-between">
-          <h2 className="ml-3 text-lg font-semibold dark:text-gray-400">Dashboard Main Content</h2>
-        </div>
-      </NavbarSidebarLayout>
+      <RouterProvider router={router} />
     </>
   );
 }
