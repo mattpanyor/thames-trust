@@ -3,7 +3,7 @@ import { Sidebar } from 'src/components/aside';
 import { Footer } from 'src/components/footer';
 import { NavBar } from 'src/components/header';
 
-export default function NavbarSidebarLayout({ children }) {
+export function NavbarSidebarLayout({ children }) {
   const [toggleSidebarMobile, setToggleSidebarMobile] = useState(false);
   return (
     <>
