@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { MobileSearchForm } from 'src/components/aside';
 import {
   AccountIcon,
@@ -7,6 +8,7 @@ import {
   SettingsIcon,
   UserIcon
 } from 'src/components/SVGs';
+import cn from 'src/utils/twMerge.js';
 
 export function NavigationMenu({ handleTodoDropdownClick, openDropdownId }) {
   return (
@@ -18,21 +20,27 @@ export function NavigationMenu({ handleTodoDropdownClick, openDropdownId }) {
               <MobileSearchForm />
             </li>
             <li>
-              <a
-                href="#"
-                className="group flex items-center rounded-lg p-2 text-base text-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
+              <NavLink
+                to="/"
+                className={cn(
+                  `group flex items-center rounded-lg p-2 text-base text-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700`,
+                  ({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')
+                )}>
                 <DashboardIcon />
                 <span className="ml-3">Dashboard</span>
-              </a>
+              </NavLink>
             </li>
             <li onClick={(e) => handleTodoDropdownClick(e)} id="dropdown-users">
-              <button
-                type="button"
-                className="group flex w-full items-center rounded-lg p-2 text-base text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
+              <NavLink
+                to="/users"
+                className={cn(
+                  `group flex w-full items-center rounded-lg p-2 text-base text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700`,
+                  ({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')
+                )}>
                 <UserIcon />
                 <span className="ml-3 flex-1 whitespace-nowrap text-left">Users</span>
                 <DropdownChevronIcon />
-              </button>
+              </NavLink>
               <ul
                 className={`${openDropdownId !== 'dropdown-users' ? 'hidden' : 'block'} space-y-2 py-2`}>
                 <li>
@@ -45,13 +53,16 @@ export function NavigationMenu({ handleTodoDropdownClick, openDropdownId }) {
               </ul>
             </li>
             <li onClick={(e) => handleTodoDropdownClick(e)} id="dropdown-accounts">
-              <button
-                type="button"
-                className="group flex w-full items-center rounded-lg p-2 text-base text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
+              <NavLink
+                to="/accounts"
+                className={cn(
+                  `group flex w-full items-center rounded-lg p-2 text-base text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700`,
+                  ({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')
+                )}>
                 <AccountIcon />
                 <span className="ml-3 flex-1 whitespace-nowrap text-left">Accounts</span>
                 <DropdownChevronIcon />
-              </button>
+              </NavLink>
               <ul
                 className={`${openDropdownId !== 'dropdown-accounts' ? 'hidden' : 'block'} space-y-2 py-2`}>
                 <li>
@@ -64,14 +75,39 @@ export function NavigationMenu({ handleTodoDropdownClick, openDropdownId }) {
               </ul>
             </li>
             <li>
-              <a
-                href="#"
-                className="group flex items-center rounded-lg p-2 text-base text-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 ">
+              <NavLink
+                to="/transactions"
+                className={cn(
+                  `group flex items-center rounded-lg p-2 text-base text-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700`,
+                  ({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')
+                )}>
+                <DashboardIcon />
+                <span className="ml-3">Transactions</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/statements"
+                className={cn(
+                  `group flex items-center rounded-lg p-2 text-base text-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700`,
+                  ({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')
+                )}>
+                <DashboardIcon />
+                <span className="ml-3">Statements</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/settings"
+                className={cn(
+                  `group flex items-center rounded-lg p-2 text-base text-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700`,
+                  ({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')
+                )}>
                 <SettingsIcon
                   className={`h-6 w-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white`}
                 />
                 <span className="ml-3">Settings</span>
-              </a>
+              </NavLink>
             </li>
           </ul>
           <div className="space-y-2 pt-2">
