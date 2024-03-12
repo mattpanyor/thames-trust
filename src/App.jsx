@@ -1,12 +1,29 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from 'src/ErrorPage.jsx';
-import { Accounts, Dashboard, Settings, Statements, Transactions, Users } from 'src/routes';
+import {
+  Accounts,
+  Dashboard,
+  Login,
+  Settings,
+  SignUp,
+  Statements,
+  Transactions,
+  Users
+} from 'src/routes';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Dashboard />,
     errorElement: <ErrorPage />
+  },
+  {
+    path: '/sign-up',
+    element: <SignUp />
+  },
+  {
+    path: '/login',
+    element: <Login />
   },
   {
     path: '/users',
