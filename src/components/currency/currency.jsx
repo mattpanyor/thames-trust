@@ -7,3 +7,5 @@ function CurrencyDisplay(props) {
   const formattedCurrency = amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
   return <span>{formattedCurrency}</span>;}
   export default CurrencyDisplay;
+
+  
