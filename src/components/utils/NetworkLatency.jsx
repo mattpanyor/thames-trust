@@ -1,7 +1,7 @@
 // function to simulate network latency 
 import React, { useState, useEffect } from "react";
 
-const networkSimulator = () => {
+const networkLatencySim = () => {
     // This is defining a state variable 'loading' and a function 'setLoading' to update it
     const [loading, setLoading] = useState(true);
     // useEffect used to run side effects in function component
@@ -23,7 +23,7 @@ const networkSimulator = () => {
   );
 
 };
-  export default NetworkSimulator;
+  export default networkLatencySim;
 
 
 
