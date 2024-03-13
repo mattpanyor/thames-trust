@@ -1,4 +1,5 @@
 import { NavbarFullWidthLayout } from 'src/layouts';
+import { LoginForm } from '../features/user/components/login/LoginForm';
 
 export function Login() {
   return (
@@ -10,7 +11,7 @@ export function Login() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Log in to Online Banking
               </h2>
-              {/* Login Form  */}
+              <LoginForm />
             </div>
           </div>
         </NavbarFullWidthLayout>
