@@ -1,4 +1,5 @@
 import { NavbarFullWidthLayout } from 'src/layouts';
+import SignUpForm from '../features/signUpForm/SignUpForm';
 
 export function SignUp() {
   return (
@@ -10,7 +11,7 @@ export function SignUp() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Register for Online Banking
               </h2>
-              {/* Sign up form */}
+             <SignUpForm />
             </div>
           </div>
         </NavbarFullWidthLayout>
