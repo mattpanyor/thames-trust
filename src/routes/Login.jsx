@@ -1,5 +1,5 @@
 import { NavbarFullWidthLayout } from 'src/layouts';
-import { LoginForm } from '../features/user/components/login/LoginForm';
+import { LoginForm } from 'src/features/user/components/login/LoginForm';
 
 export function Login() {
   return (
