@@ -1,5 +1,4 @@
-import { Button } from "../../../../components/button/Button";
-
+import { Button } from 'src/components/button/Button';
 
 export function LoginForm() {
   return (
