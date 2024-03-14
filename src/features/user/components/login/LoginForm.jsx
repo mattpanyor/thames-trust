@@ -54,7 +54,7 @@ export function LoginForm() {
             Lost Password?
           </a>
         </div>
-        <Button />
+        <Button btnType={'submit'} btnText={'Login to your account'}/>
         <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
           Not registered?{' '}
           <a className="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
