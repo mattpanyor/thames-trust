@@ -1,3 +1,5 @@
+import './signUpForm.css'
+
 export function SignUpForm() {
   return (
     <div className="w-full max-w-xl space-y-8 rounded-lg sm:p-8">
@@ -44,7 +46,7 @@ export function SignUpForm() {
               name="address"
               id="address"
               className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
-              placeholder="e.g. California"
+              placeholder="1 Cross Street"
               required=""
             />
           </div>
@@ -94,7 +96,8 @@ export function SignUpForm() {
             />
           </div>
         </div>
-        <div className="col-span-6 sm:col-span-3">
+        <div className="mb-3 mt-6 rid grid-rows-1 basis-full">
+        <div className="mb-3 ">
           <label
             htmlFor="password"
             className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
@@ -109,7 +112,7 @@ export function SignUpForm() {
             required=""
           />
         </div>
-        <div className="col-span-6 sm:col-span-3">
+        <div className="mt-6 mb-3">
           <label
             htmlFor="confirm-password"
             className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
@@ -124,9 +127,9 @@ export function SignUpForm() {
             required=""
           />
         </div>
-        <div className="auto-rows-auto">
-          <div className="mx-auto flex">
-            <div className="col-span-12 flex h-5 items-center">
+        <div className="mt-6">
+          <div className="extra mx-auto flex">
+            <div className="agreement mr-3">
               <input
                 id="remember"
                 aria-describedby="remember"
@@ -135,22 +138,23 @@ export function SignUpForm() {
                 className="focus:ring-3 h-4 w-4 rounded border-gray-300 bg-gray-50 focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
                 required=""
               />
-            </div>
-            <div className="col-span-12 ml-3 text-sm sm:col-span-3">
-              <label htmlFor="remember" className="font-medium text-gray-900 dark:text-white">
+              <label htmlFor="remember" className="font-medium text-gray-900 dark:text-white ml-3">
                 I accept the{' '}
-                <a href="#" className="text-primary-700 hover:underline dark:text-blue-500">
+                <a href="#" className="text-blue-700 hover:underline dark:text-blue-500">
                   Terms and Conditions
                 </a>
               </label>
             </div>
+            <div>
             <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
               Already have an account?{' '}
               <a href="#" className="text-blue-700 hover:underline dark:text-blue-500">
                 Login here
               </a>
             </div>
+            </div>
           </div>
+        </div>
         </div>
       </form>
     </div>
