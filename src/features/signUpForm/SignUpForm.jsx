@@ -1,4 +1,5 @@
 import './signUpForm.css'
+import { Button } from 'src/components/elements';
 
 export function SignUpForm() {
   return (
@@ -145,8 +146,9 @@ export function SignUpForm() {
                 </a>
               </label>
             </div>
-            <div>
-            <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
+            <div className="extra mt-6 ">
+            <Button btnType={'submit'} btnText={'Register'} />
+            <div className="text-sm font-medium text-gray-500 dark:text-gray-400 mt-6">
               Already have an account?{' '}
               <a href="#" className="text-blue-700 hover:underline dark:text-blue-500">
                 Login here
