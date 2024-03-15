@@ -1,15 +1,26 @@
-import EntityPersistence from 'src/classes/EntityPersistence.js';
+import { EntityPersistence } from 'src/classes';
 
 class UserRepository extends EntityPersistence {
   constructor(storageKey) {
     super(storageKey);
   }
 
-  findByUsername(username) {
+  findUserByUsername(username) {
     try {
       const allUsers = super.findAll();
 
       return allUsers.find((user) => user.username === username);
+    } catch (error) {
+      console.error('Error retrieving user from localStorage:', error);
+      return false;
+    }
+  }
+
+  findUserByEmail(emailAddress) {
+    try {
+      const allUsers = super.findAll();
+
+      return allUsers.find((user) => user.emailAddress === emailAddress);
     } catch (error) {
       console.error('Error retrieving user from localStorage:', error);
       return false;
