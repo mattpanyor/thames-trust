@@ -1,6 +1,15 @@
 import { Button } from 'src/components/elements';
+import { useState } from 'react';
+import User from 'src/features/user/classes/User';
 
 export function LoginForm() {
+  const [loginFormData, setLoginFormData] = useState(new User());
+
+  const handleOnChange = (e) => {
+    setLoginFormData({ ...loginFormData, [e.target.name]: e.target.value });
+    console.log(loginFormData);
+  };
+
   return (
     <>
       <form className="mt-8 space-y-6" action="#">
@@ -11,6 +20,7 @@ export function LoginForm() {
             Your email
           </label>
           <input
+            onChange={handleOnChange}
             type="email"
             name="email"
             id="email"
@@ -26,6 +36,7 @@ export function LoginForm() {
             Your password
           </label>
           <input
+            onChange={handleOnChange}
             type="password"
             name="password"
             id="password"
