@@ -126,4 +126,4 @@ class EntityPersistence {
   }
 }
 
-export default EntityPersistence;
+export { EntityPersistence };
