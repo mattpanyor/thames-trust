@@ -3,18 +3,24 @@
     "id": 1,
     "firstName": "James",
     "lastName": "Brown",
-    "username": "info@example.org"
+    "username": "info@example.org",
+    "emailAddress": "info@example.org",
+    "password": "12345"
   },
   {
     "id": 2,
     "firstName": "Felix",
     "lastName": "Charlie",
-    "username": "info@example.org"
+    "username": "info@example.com",
+    "emailAddress": "info@example.com",
+    "password": "12345"
   },
   {
     "id": 3,
     "firstName": "Mike Ross",
     "lastName": "Brown",
-    "username": "info@example.org"
+    "username": "info@example.net",
+    "emailAddress": "info@example.net",
+    "password": "12345"
   }
 ]

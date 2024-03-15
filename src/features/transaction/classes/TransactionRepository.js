@@ -1,4 +1,4 @@
-import EntityPersistence from 'src/classes/EntityPersistence.js';
+import { EntityPersistence } from 'src/classes';
 
 class TransactionRepository extends EntityPersistence {
   constructor(storageKey) {
