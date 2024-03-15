@@ -1,0 +1,12 @@
+.extra {
+    display:flex;
+    flex-direction: column;
+    align-items: center
+};
+
+.agreement {
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
