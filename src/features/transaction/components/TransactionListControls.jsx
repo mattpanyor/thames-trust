@@ -6,7 +6,6 @@ function TransactionListControls({ pageChange, currentPage, max_length }) {
     const [btn_prev, setBtn_prev] = useState(false)
 
     useEffect(() => {
-        console.log(currentPage, max_length);
         if (currentPage <= 0) {
             setBtn_prev(false)
         } else {
@@ -17,7 +16,6 @@ function TransactionListControls({ pageChange, currentPage, max_length }) {
         } else {
             setBtn_next(true)
         }
-        console.log(btn_prev, btn_next)
     }, [currentPage])
 
     return (
