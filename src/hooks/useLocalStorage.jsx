@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { EntityPersistenceContext } from 'src/context/EntityPersistenceContext.jsx';
+import { EntityPersistenceContext } from 'src/context';
 
 export function useLocalStorage() {
   const context = useContext(EntityPersistenceContext);
