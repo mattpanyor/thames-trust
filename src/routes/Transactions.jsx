@@ -5,7 +5,7 @@ export function Transactions() {
   return (
     <>
       <NavbarSidebarLayout>
-        <div className="mb-6 flex flex-col flex-wrap items-center justify-between">
+        <div className="mb-6 flex flex-wrap items-center">
           <h2 className="ml-3 text-lg font-semibold dark:text-gray-400">Transactions</h2>
           <TransactionList />
         </div>
