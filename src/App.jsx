@@ -1,5 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { EntityPersistenceContextProvider } from 'src/context';
+import {
+  AuthenticationPersistenceContextProvider,
+  EntityPersistenceContextProvider
+} from 'src/context';
 import ErrorPage from 'src/ErrorPage.jsx';
 import {
   Accounts,
@@ -52,7 +55,9 @@ function App() {
   return (
     <>
       <EntityPersistenceContextProvider>
-        <RouterProvider router={router} />
+        <AuthenticationPersistenceContextProvider>
+          <RouterProvider router={router} />
+        </AuthenticationPersistenceContextProvider>
       </EntityPersistenceContextProvider>
     </>
   );
