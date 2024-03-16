@@ -1,30 +1,29 @@
-import { useState } from 'react';
-import TransactionFilter from 'src/features/transaction/components/TransactionFilter.jsx';
-import TransactionViewFooter from 'src/features/transaction/components/TransactionViewFooter.jsx';
+import { useEffect, useState } from 'react';
+import {
+  TransactionFilter,
+  TransactionListLine,
+  TransactionViewFooter
+} from 'src/features/transaction/components';
+import { useLocalStorage, useTransactionContext } from 'src/hooks';
 
-import TransactionListLine from './TransactionListLine';
-
-import TransactionData from '/src/data/transaction.json';
-
-function TransactionList() {
-  const sampleTransactionData = TransactionData;
-
-  const chopData = (limit, data) => {
-    let result = [];
-
-    for (let i = 0; i < data.length; i += limit) {
-      result.push(data.slice(i, i + limit));
-    }
-    return result;
-  };
+export function TransactionList() {
+  const PAGE_SIZE = 6; // Transactions per page.
 
   const [currentPage, setCurrentPage] = useState(0);
-  const [transactionList, setTransactionList] = useState(chopData(6, sampleTransactionData));
-  const [transactionView, setTransactionView] = useState(transactionList[0]);
+  const [transactionView, setTransactionView] = useState([]);
+  const { transactionRepository, userRepository, accountRepository } = useLocalStorage();
+
+  const { transactions, setTransactions } = useTransactionContext();
+
+  useEffect(() => {
+    const startIndex = currentPage * PAGE_SIZE;
+    const endIndex = startIndex + PAGE_SIZE;
+    const slicedTransactions = transactions.slice(startIndex, endIndex);
+    setTransactionView(slicedTransactions);
+  }, [transactions, currentPage]);
 
   const changePage = (pageNumber) => {
-    if (pageNumber >= 0 && pageNumber <= transactionList.length - 1) {
-      setTransactionView(transactionList[pageNumber]);
+    if (pageNumber >= 0 && pageNumber < Math.ceil(transactions.length / PAGE_SIZE)) {
       setCurrentPage(pageNumber);
     }
   };
@@ -89,12 +88,10 @@ function TransactionList() {
           <TransactionViewFooter
             pageChange={changePage}
             currentPage={currentPage}
-            maxLength={transactionList.length}
+            maxLength={transactionView.length}
           />
         </div>
       </div>
     </>
   );
 }
-
-export default TransactionList;
