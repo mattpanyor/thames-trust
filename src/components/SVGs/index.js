@@ -1,4 +1,5 @@
 export { AccountIcon } from './AccountIcon.jsx';
+export { AnimatedSpinnerIcon } from './AnimatedSpinnerIcon.jsx';
 export { CloseIcon } from './CloseIcon.jsx';
 export { DashboardIcon } from './DashboardIcon.jsx';
 export { DeleteIcon } from './DeleteIcon.jsx';
