@@ -1,4 +1,4 @@
-function TransactionListLine({ tr }) {
+export function TransactionListLine({ tr }) {
   const isTransactionOutgoing = (amount) => {
     return amount < 0;
   };
@@ -43,5 +43,3 @@ function TransactionListLine({ tr }) {
     </tr>
   );
 }
-
-export default TransactionListLine;

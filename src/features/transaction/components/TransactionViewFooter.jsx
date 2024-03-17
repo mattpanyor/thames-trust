@@ -1,6 +1,6 @@
-import TransactionListControls from 'src/features/transaction/components/TransactionListControls.jsx';
+import { TransactionListControls } from 'src/features/transaction/components';
 
-function TransactionViewFooter(props) {
+export function TransactionViewFooter(props) {
   return (
     <div className="flex items-center justify-between pt-3 sm:pt-6">
       <div>
@@ -94,5 +94,3 @@ function TransactionViewFooter(props) {
     </div>
   );
 }
-
-export default TransactionViewFooter;

@@ -1,7 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
+  AccountContextProvider,
   AuthenticationPersistenceContextProvider,
-  EntityPersistenceContextProvider
+  EntityPersistenceContextProvider,
+  TransactionContextProvider,
+  UserContextProvider
 } from 'src/context';
 import ErrorPage from 'src/ErrorPage.jsx';
 import {
@@ -56,7 +59,13 @@ function App() {
     <>
       <EntityPersistenceContextProvider>
         <AuthenticationPersistenceContextProvider>
-          <RouterProvider router={router} />
+          <UserContextProvider>
+            <AccountContextProvider>
+              <TransactionContextProvider>
+                <RouterProvider router={router} />
+              </TransactionContextProvider>
+            </AccountContextProvider>
+          </UserContextProvider>
         </AuthenticationPersistenceContextProvider>
       </EntityPersistenceContextProvider>
     </>

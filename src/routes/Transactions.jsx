@@ -1,4 +1,4 @@
-import TransactionList from 'src/features/transaction/components/TransactionList';
+import { TransactionList } from 'src/features/transaction/components';
 import { NavbarSidebarLayout } from 'src/layouts';
 
 export function Transactions() {

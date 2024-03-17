@@ -1,4 +1,4 @@
-export default function TransactionFilter() {
+export function TransactionFilter() {
   return (
     <>
       <div className="items-center justify-between lg:flex">
