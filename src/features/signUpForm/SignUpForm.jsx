@@ -2,6 +2,23 @@ import './signUpForm.css'
 import { Button } from 'src/components/elements';
 
 export function SignUpForm() {
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    address: '',
+    postcode: '',
+    email: '',
+    dob: '',
+    password: '',
+})
+console.log(form);
+
+const handleChange = (e) => {
+    setForm({
+        ...form,
+        [e.target.name]: e.target.value,
+})
+};
   return (
     <div className="w-full max-w-xl space-y-8 rounded-lg sm:p-8">
       <form action="#">
@@ -15,7 +32,7 @@ export function SignUpForm() {
             <input
               type="text"
               onChange={handleChange}
-              name="first-name"
+              name="firstName"
               id="first-name"
               className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
               placeholder="Bonnie"
@@ -24,14 +41,14 @@ export function SignUpForm() {
           </div>
           <div className="col-span-6 sm:col-span-3">
             <label
-              htmlFor="last-name"
+              htmlFor="lastName"
               className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
               Last Name
             </label>
             <input
               type="text"
               onChange={handleChange}
-              name="last-name"
+              name="lastName"
               id="last-name"
               className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
               placeholder="Green"
@@ -88,14 +105,14 @@ export function SignUpForm() {
           </div>
           <div className="col-span-6 sm:col-span-3">
             <label
-              htmlFor="DOB"
+              htmlFor="dob"
               className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
               Date of Birth
             </label>
             <input
               type="number"
               onChange={handleChange}
-              name="DOB"
+              name="dob"
               id="DOB"
               className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
               placeholder="15/08/1990"
@@ -122,14 +139,14 @@ export function SignUpForm() {
         </div>
         <div className="mt-6 mb-3">
           <label
-            htmlFor="confirm-password"
+            htmlFor="confirmPassword"
             className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
             Confirm password
           </label>
           <input
             type="password"
             onChange={handleChange}
-            name="confirm-password"
+            name="confirmPassword"
             id="confirm-password"
             placeholder="••••••••"
             className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
@@ -158,9 +175,8 @@ export function SignUpForm() {
             <Button btnType={'submit'} btnText={'Register'} />
             <div className="text-sm font-medium text-gray-500 dark:text-gray-400 mt-6">
               Already have an account?{' '}
-              <link  className="text-blue-700 hover:underline dark:text-blue-500">
+              <link  className="text-blue-700 hover:underline dark:text-blue-500"/>
                 Login here
-              </a>
             </div>
             </div>
           </div>

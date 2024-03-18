@@ -10,12 +10,13 @@ export default function CreateUser (){
         email: '',
         dob: '',
         password: '',
-    });
+    })
+    console.log(form);
 
     const handleChange = (e) => {
-        setForm([
+        setForm({
             ...form,
             [e.target.name]: e.target.value,
-        ])
-    }
+    })
+    };
 }
