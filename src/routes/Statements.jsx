@@ -5,7 +5,9 @@ export function Statements() {
     <>
       <NavbarSidebarLayout>
         <div className="mb-6 flex flex-wrap items-center justify-between">
-          <h2 className="ml-3 text-lg font-semibold dark:text-gray-400">Statements</h2>
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
+            Statements
+          </h2>
         </div>
       </NavbarSidebarLayout>
     </>
