@@ -1,5 +1,6 @@
 import { Button } from 'src/components/elements';
 
+
 export function LostPasswordForm() {
   return (
     <div className="w-full rounded-lg bg-white shadow dark:bg-gray-800 sm:max-w-md md:mt-0 xl:p-0">
