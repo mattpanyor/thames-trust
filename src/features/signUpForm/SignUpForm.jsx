@@ -14,6 +14,7 @@ export function SignUpForm() {
             </label>
             <input
               type="text"
+              onChange={handleChange}
               name="first-name"
               id="first-name"
               className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
@@ -29,6 +30,7 @@ export function SignUpForm() {
             </label>
             <input
               type="text"
+              onChange={handleChange}
               name="last-name"
               id="last-name"
               className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
@@ -44,10 +46,27 @@ export function SignUpForm() {
             </label>
             <input
               type="text"
+              onChange={handleChange}
               name="address"
               id="address"
               className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
               placeholder="1 Cross Street"
+              required=""
+            />
+          </div>
+          <div className="col-span-6 sm:col-span-3">
+            <label
+              htmlFor="postcode"
+              className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+              Post code
+            </label>
+            <input
+              type="text"
+              onChange={handleChange}
+              name="postcode"
+              id="postcode"
+              className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
+              placeholder="XX11 2XX"
               required=""
             />
           </div>
@@ -59,6 +78,7 @@ export function SignUpForm() {
             </label>
             <input
               type="email"
+              onChange={handleChange}
               name="email"
               id="email"
               className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
@@ -74,25 +94,11 @@ export function SignUpForm() {
             </label>
             <input
               type="number"
+              onChange={handleChange}
               name="DOB"
               id="DOB"
               className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
               placeholder="15/08/1990"
-              required=""
-            />
-          </div>
-          <div className="col-span-6 sm:col-span-3">
-            <label
-              htmlFor="postcode"
-              className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-              Post code
-            </label>
-            <input
-              type="number"
-              name="postcode"
-              id="postcode"
-              className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
-              placeholder="XX11 2XX"
               required=""
             />
           </div>
@@ -106,6 +112,7 @@ export function SignUpForm() {
           </label>
           <input
             type="password"
+            onChange={handleChange}
             name="password"
             id="password"
             placeholder="••••••••"
@@ -121,6 +128,7 @@ export function SignUpForm() {
           </label>
           <input
             type="password"
+            onChange={handleChange}
             name="confirm-password"
             id="confirm-password"
             placeholder="••••••••"
@@ -150,7 +158,7 @@ export function SignUpForm() {
             <Button btnType={'submit'} btnText={'Register'} />
             <div className="text-sm font-medium text-gray-500 dark:text-gray-400 mt-6">
               Already have an account?{' '}
-              <a href="#" className="text-blue-700 hover:underline dark:text-blue-500">
+              <link  className="text-blue-700 hover:underline dark:text-blue-500">
                 Login here
               </a>
             </div>
