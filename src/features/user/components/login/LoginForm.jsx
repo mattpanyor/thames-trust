@@ -90,9 +90,11 @@ export function LoginForm() {
           <div className="ml-3 text-sm">
             <Label htmlFor={'remember'} labelTxt={'Remember me'} />
           </div>
-          <button className="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500">
+          <Link
+            to={'/lostPassword'}
+            className="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500">
             Lost Password?
-          </button>
+          </Link>
         </div>
         <Button
           onClick={handleFormSubmit}

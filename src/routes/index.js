@@ -1,6 +1,7 @@
 export { Accounts } from './Accounts.jsx';
 export { Dashboard } from './Dashboard.jsx';
 export { Login } from './Login.jsx';
+export { LostPassword } from './LostPassword.jsx';
 export { Settings } from './Settings.jsx';
 export { SignUp } from './SignUp.jsx';
 export { Statements } from './Statements.jsx';
