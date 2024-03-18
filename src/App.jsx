@@ -1,10 +1,18 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { EntityPersistenceContextProvider } from 'src/context';
+import {
+  AccountContextProvider,
+  AuthenticationPersistenceContextProvider,
+  EntityPersistenceContextProvider,
+  ModalDrawerContextProvider,
+  TransactionContextProvider,
+  UserContextProvider
+} from 'src/context';
 import ErrorPage from 'src/ErrorPage.jsx';
 import {
   Accounts,
   Dashboard,
   Login,
+  LostPassword,
   Settings,
   SignUp,
   Statements,
@@ -25,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />
+  },
+  {
+    path: '/lostPassword',
+    element: <LostPassword />
   },
   {
     path: '/users',
@@ -52,7 +64,17 @@ function App() {
   return (
     <>
       <EntityPersistenceContextProvider>
-        <RouterProvider router={router} />
+        <AuthenticationPersistenceContextProvider>
+          <UserContextProvider>
+            <AccountContextProvider>
+              <TransactionContextProvider>
+                <ModalDrawerContextProvider>
+                  <RouterProvider router={router} />
+                </ModalDrawerContextProvider>
+              </TransactionContextProvider>
+            </AccountContextProvider>
+          </UserContextProvider>
+        </AuthenticationPersistenceContextProvider>
       </EntityPersistenceContextProvider>
     </>
   );

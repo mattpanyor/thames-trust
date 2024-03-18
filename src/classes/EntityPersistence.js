@@ -53,6 +53,15 @@ class EntityPersistence {
     }
   }
 
+  update(entity) {
+    try {
+      return this.save(entity);
+    } catch (error) {
+      console.error(`Error updating entity: ${error}`);
+      return false;
+    }
+  }
+
   findAll() {
     try {
       return Array.from(this._loadEntities().values());
@@ -126,4 +135,4 @@ class EntityPersistence {
   }
 }
 
-export default EntityPersistence;
+export { EntityPersistence };
