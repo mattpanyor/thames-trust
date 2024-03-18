@@ -3,6 +3,7 @@ import {
   AccountContextProvider,
   AuthenticationPersistenceContextProvider,
   EntityPersistenceContextProvider,
+  ModalDrawerContextProvider,
   TransactionContextProvider,
   UserContextProvider
 } from 'src/context';
@@ -62,7 +63,9 @@ function App() {
           <UserContextProvider>
             <AccountContextProvider>
               <TransactionContextProvider>
-                <RouterProvider router={router} />
+                <ModalDrawerContextProvider>
+                  <RouterProvider router={router} />
+                </ModalDrawerContextProvider>
               </TransactionContextProvider>
             </AccountContextProvider>
           </UserContextProvider>

@@ -1,4 +1,4 @@
-const randomStringBySize = (size) => {
+const stringIdGenerator = (size) => {
   const allowedCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   let result = '';
   const charactersLength = allowedCharacters.length;
@@ -9,4 +9,4 @@ const randomStringBySize = (size) => {
   return result;
 };
 
-export default randomStringBySize;
+export default stringIdGenerator;

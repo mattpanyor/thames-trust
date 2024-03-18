@@ -1,8 +1,18 @@
 [
-
   {
     "id": 1,
-    "userId": 1
+    "accountNumber":"50613603",
+    "sortCode": "25-82-01",
+    "balance": 1000,
+    "userId": 1,
+    "type": "Current"
+  },
+  {
+    "id": 2,
+    "accountNumber":"57574158",
+    "sortCode": "22-33-44",
+    "balance": 6788,
+    "userId": 1,
+    "type": "Thames Saver"
   }
-
 ]
