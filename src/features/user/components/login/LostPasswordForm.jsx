@@ -1,4 +1,3 @@
-import { Authentication } from '../../../../classes/Authentication';
 import { useLocalStorage } from 'src/hooks';
 import { Button } from 'src/components/elements';
 import { useState } from 'react';
