@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router';
 import { LoginForm } from 'src/features/user/components/login/LoginForm';
 import { useRedirectIfNotAuthenticated } from 'src/hooks';
 import { NavbarFullWidthLayout } from 'src/layouts';
