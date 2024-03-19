@@ -28,17 +28,16 @@ export function AccountCreateForm({ toggleModalVisibility }) {
     setSelectedAccountType(event.target.value);
   };
 
+  const resetForm = () => {
+    setIsPending(false);
+    setDisabled(true);
+    handleCheckboxChange();
+    setSelectedAccountType(false);
+  };
+
   const handleFormSubmit = async () => {
     setIsPending(true);
     await sleep(1000);
-
-    const resetForm = () => {
-      setIsPending(false);
-      setDisabled(true);
-      handleCheckboxChange();
-      setSelectedAccountType(false);
-    };
-
     try {
       await accountRepository.create({
         ...account,
