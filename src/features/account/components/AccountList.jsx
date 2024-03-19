@@ -15,6 +15,7 @@ export function AccountList() {
 
   const [isDrawerModalOpen, setIsDrawerModalOpen] = useModalDrawerContext();
   const [modalType, setModalType] = useState(null);
+  const [initialSendingAccount, setInitialSendingAccount] = useState(null);
 
   const handleModalOpenClick = (type) => {
     setIsDrawerModalOpen(!isDrawerModalOpen);
@@ -23,7 +24,12 @@ export function AccountList() {
 
   const modalComponents = {
     createAccount: <AccountCreateForm toggleModalVisibility={handleModalOpenClick} />,
-    paymentForm: <AccountPaymentForm toggleModalVisibility={handleModalOpenClick} />
+    paymentForm: (
+      <AccountPaymentForm
+        initialSendingAccount={initialSendingAccount}
+        toggleModalVisibility={handleModalOpenClick}
+      />
+    )
   };
 
   return (
@@ -66,6 +72,7 @@ export function AccountList() {
             key={account.id}
             onClick={() => handleModalOpenClick('paymentForm')}
             account={account}
+            setInitialSendingAccount={setInitialSendingAccount}
           />
         ))}
     </>

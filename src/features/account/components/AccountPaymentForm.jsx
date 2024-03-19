@@ -10,7 +10,7 @@ import {
 } from 'src/hooks';
 import { sleep, stringIdGenerator } from 'src/utils';
 
-export function AccountPaymentForm({ toggleModalVisibility }) {
+export function AccountPaymentForm({ toggleModalVisibility, initialSendingAccount }) {
   const { accounts, setAccounts } = useAccountContext();
   const { setTransactions } = useTransactionContext();
   const { authentication } = useAuthentication();
@@ -19,7 +19,10 @@ export function AccountPaymentForm({ toggleModalVisibility }) {
   const [isDisabled, setDisabled] = useState(false);
   const [isPending, setIsPending] = useState(false);
 
-  const [paymentFormData, setPaymentFormData] = useState(new PaymentFormDTO());
+  const [paymentFormData, setPaymentFormData] = useState({
+    ...new PaymentFormDTO(),
+    senderId: initialSendingAccount
+  });
 
   const authenticatedUserId = authentication.getAuthenticatedUserId();
 
@@ -102,6 +105,7 @@ export function AccountPaymentForm({ toggleModalVisibility }) {
               </label>
               <select
                 name="senderId"
+                value={initialSendingAccount}
                 onChange={handleOnChange}
                 id="senderId"
                 className="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
