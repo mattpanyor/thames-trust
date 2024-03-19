@@ -9,7 +9,6 @@ export function AccountCreateForm({ toggleModalVisibility }) {
   const [account, setAccount] = useState(new Account());
 
   const { authentication } = useAuthentication();
-  const { userRepository } = useLocalStorage();
 
   const { accountRepository } = useLocalStorage();
   const [isDisabled, setDisabled] = useState(true);
