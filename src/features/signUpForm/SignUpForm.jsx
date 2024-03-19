@@ -146,7 +146,7 @@ export function SignUpForm() {
               Confirm password
             </label>
             <input
-              type="password"
+              type="text"
               onChange={handleChange}
               name="confirmPassword"
               id="confirm-password"
