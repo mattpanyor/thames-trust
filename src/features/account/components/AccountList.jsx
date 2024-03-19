@@ -1,14 +1,29 @@
-import { Button } from 'src/components/elements/index.js';
-import { AccountCreateForm, AccountListItem } from 'src/features/account/components';
+import { useState } from 'react';
+import { Button } from 'src/components/elements';
+import {
+  AccountCreateForm,
+  AccountListItem,
+  AccountPaymentForm
+} from 'src/features/account/components';
 import ModalDrawer from 'src/features/account/components/ModalDrawer.jsx';
-import { useAccountContext, useModalDrawerContext } from 'src/hooks';
+import { useAccountContext, useAuthentication, useModalDrawerContext } from 'src/hooks';
 
 export function AccountList() {
   const { accounts, setAccounts } = useAccountContext();
-  const [isDrawerOpen, setIsDrawerOpen] = useModalDrawerContext();
+  const { authentication } = useAuthentication();
+  const authenticatedUserId = authentication.getAuthenticatedUserId();
 
-  const handleCreateAccountClick = () => {
+  const [isDrawerOpen, setIsDrawerOpen] = useModalDrawerContext();
+  const [modalType, setModalType] = useState(null);
+
+  const handleModalOpenClick = (type) => {
     setIsDrawerOpen(!isDrawerOpen);
+    setModalType(type);
+  };
+
+  const modalComponents = {
+    createAccount: <AccountCreateForm onShow={handleModalOpenClick} />,
+    paymentForm: <AccountPaymentForm onShow={handleModalOpenClick} />
   };
 
   return (
@@ -16,8 +31,10 @@ export function AccountList() {
       <ModalDrawer
         setIsDrawerOpen={setIsDrawerOpen}
         isDrawerOpen={isDrawerOpen}
-        content={<AccountCreateForm onShow={handleCreateAccountClick} />}
+        modalType={modalType}
+        content={modalComponents[modalType]}
       />
+
       <div className="mb-4 block items-center justify-between dark:divide-gray-700 sm:flex md:divide-x md:divide-gray-100">
         <div className="mb-4 flex items-center sm:mb-0">
           <form className="sm:pr-3" onClick={(e) => e.preventDefault()}>
@@ -36,14 +53,22 @@ export function AccountList() {
           </form>
         </div>
         <Button
-          onClick={handleCreateAccountClick}
+          onClick={() => handleModalOpenClick('createAccount')}
           btnTxt={'Create Account'}
           className={
             'rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
           }
         />
       </div>
-      <AccountListItem accounts={accounts} />
+      {accounts
+        .filter((account) => account.userId === authenticatedUserId)
+        .map((account) => (
+          <AccountListItem
+            key={account.id}
+            onClick={() => handleModalOpenClick('paymentForm')}
+            account={account}
+          />
+        ))}
     </>
   );
 }

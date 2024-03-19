@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { CloseIcon } from 'src/components/SVGs/index.js';
+import { CloseIcon } from 'src/components/SVGs';
 
 export default function ModalDrawer({ isDrawerOpen, setIsDrawerOpen, content }) {
   const handleModelDrawerDismiss = () => {

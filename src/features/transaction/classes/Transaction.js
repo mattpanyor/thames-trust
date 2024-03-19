@@ -1,11 +1,11 @@
 class Transaction {
-  constructor(transactionId, senderId, receiverId, reference, amount, transactionDate) {
+  constructor(transactionId, senderId, receiverId, reference, amount) {
     this.transactionId = transactionId;
     this.senderId = senderId;
     this.receiverId = receiverId;
     this.reference = reference;
     this.amount = amount;
-    this.transactionDate = transactionDate;
+    this.transactionDate = Date.now();
   }
 }
 

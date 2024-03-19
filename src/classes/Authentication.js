@@ -20,6 +20,24 @@ class Authentication {
     }
   }
 
+  getAuthenticatedUserId() {
+    try {
+      return this.getAuthenticatedUser().id;
+    } catch (error) {
+      console.error('Error retrieving authenticated user id:', error);
+      return false;
+    }
+  }
+
+  getAuthenticatedUser() {
+    try {
+      return this.userRepository.findUserByUsername(this.getAuthenticationToken().username);
+    } catch (error) {
+      console.error('Error retrieving authenticated user:', error);
+      return false;
+    }
+  }
+
   isAuthenticated(user) {
     try {
       return (

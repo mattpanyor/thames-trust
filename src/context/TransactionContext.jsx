@@ -7,6 +7,7 @@ export const TransactionContext = createContext(null);
 export function TransactionContextProvider({ children }) {
   const { transactionRepository } = useLocalStorage();
   const [transactions, setTransactions] = useState([]);
+  const [sortedTransactions, setSortedTransactions] = useState([]);
 
   useEffect(() => {
     try {
@@ -21,9 +22,16 @@ export function TransactionContextProvider({ children }) {
     }
   }, [transactionRepository]);
 
+  useEffect(() => {
+    const sortedTransactions = [...transactions].sort(
+      (a, b) => b.transactionDate - a.transactionDate
+    );
+    setSortedTransactions(sortedTransactions);
+  }, [transactions]);
+
   return (
     <>
-      <TransactionContext.Provider value={{ transactions, setTransactions }}>
+      <TransactionContext.Provider value={{ transactions: sortedTransactions, setTransactions }}>
         {children}
       </TransactionContext.Provider>
     </>

@@ -6,7 +6,7 @@
     "receiverId": "Becky",
     "reference": "Bonus",
     "amount": -2125,
-    "transactionDate": "09-05-2024"
+    "transactionDate": 1670584800000
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "receiverId": "Matt",
     "reference": "Loan",
     "amount": 2937,
-    "transactionDate": "12-06-2024"
+    "transactionDate": 1676128800000
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "receiverId": "XYZ Corp",
     "reference": "Expense",
     "amount": -1503,
-    "transactionDate": "03-04-2024"
+    "transactionDate": 1670234400000
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "receiverId": "Matt",
     "reference": "Reimbursement",
     "amount": 1924,
-    "transactionDate": "18-08-2024"
+    "transactionDate": 1679272800000
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "receiverId": "Jane",
     "reference": "Salary",
     "amount": -3109,
-    "transactionDate": "25-07-2024"
+    "transactionDate": 1677223200000
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "receiverId": "Matt",
     "reference": "Donation",
     "amount": 2856,
-    "transactionDate": "21-09-2024"
+    "transactionDate": 1680050400000
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "receiverId": "John",
     "reference": "Bonus",
     "amount": -2487,
-    "transactionDate": "16-11-2024"
+    "transactionDate": 1679181600000
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "receiverId": "Matt",
     "reference": "Payment",
     "amount": 1821,
-    "transactionDate": "07-10-2024"
+    "transactionDate": 1678341600000
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "receiverId": "Lily",
     "reference": "Refund",
     "amount": -3240,
-    "transactionDate": "30-12-2024"
+    "transactionDate": 1679964000000
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "receiverId": "Matt",
     "reference": "Sponsorship",
     "amount": 1765,
-    "transactionDate": "02-02-2024"
+    "transactionDate": 1676450400000
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "receiverId": "Noah",
     "reference": "Incentive",
     "amount": -2127,
-    "transactionDate": "14-03-2024"
+    "transactionDate": 1678855200000
   },
   {
     "id": 12,
@@ -105,7 +105,7 @@
     "receiverId": "Matt",
     "reference": "Commission",
     "amount": 2999,
-    "transactionDate": "05-01-2024"
+    "transactionDate": 1672984800000
   },
   {
     "id": 13,
@@ -114,7 +114,7 @@
     "receiverId": "Peter",
     "reference": "Allowance",
     "amount": -2356,
-    "transactionDate": "23-06-2024"
+    "transactionDate": 1674516000000
   },
   {
     "id": 14,
@@ -123,7 +123,7 @@
     "receiverId": "Matt",
     "reference": "Dividend",
     "amount": 1985,
-    "transactionDate": "08-09-2024"
+    "transactionDate": 1679484000000
   },
   {
     "id": 15,
@@ -132,6 +132,6 @@
     "receiverId": "Sam",
     "reference": "Grant",
     "amount": -3067,
-    "transactionDate": "19-05-2024"
+    "transactionDate": 1674069600000
   }
 ]

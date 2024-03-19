@@ -1,4 +1,4 @@
-import stringIdGenerator from 'src/utils/stringIdGenerator.js';
+import { stringIdGenerator } from 'src/utils/stringIdGenerator.js';
 
 describe('Utility function - random String', () => {
   it('Generates 143 long random string', () => {

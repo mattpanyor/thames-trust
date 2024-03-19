@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'src/components/elements';
 import { Input, Label } from 'src/components/form';
 import { useAuthentication } from 'src/hooks';
-import sleep from 'src/utils/sleep.js';
+import { sleep } from 'src/utils';
 
 export function LoginForm() {
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import cn from 'src/utils/twMerge.js';
+import { cn } from 'src/utils';
 
 export function DropdownOptionIcon({ className }) {
   return (
