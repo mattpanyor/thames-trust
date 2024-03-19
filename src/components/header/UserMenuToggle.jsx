@@ -1,13 +1,18 @@
 export function UserMenuToggle({ dropdownRef, isUserMenuOpen, handleUserMenuClick }) {
-  return (
+  const { authentication } = useAuthentication();
+  const navigate : NavigateFunction = useNavigate();
+
+    const handleLogout = () : void => {
+        authentication.logout();
+        navigate('/login')
+    }
+    return (
     <>
       <div onClick={(e) => handleUserMenuClick(e)} ref={dropdownRef}>
         <button
           type="button"
           className="flex rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
           id="user-menu-button"
-          aria-expanded="false"
-          data-dropdown-toggle="dropdown-2">
           <span className="sr-only text-gray-200 dark:text-white">Open user menu</span>
           <img
             className="h-8 w-8 rounded-full"
@@ -28,35 +33,32 @@ export function UserMenuToggle({ dropdownRef, isUserMenuOpen, handleUserMenuClic
         </div>
         <ul className="py-1" role="none">
           <li>
-            <a
-              href="#"
+            <button
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
               role="menuitem">
               Dashboard
-            </a>
+            </button>
           </li>
           <li>
-            <a
-              href="#"
+            <button
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
               role="menuitem">
               Settings
             </a>
           </li>
           <li>
-            <a
-              href="#"
+            <button
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
               role="menuitem">
               Transactions
             </a>
           </li>
           <li>
-            <a
-              href="#"
+            <button
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
               role="menuitem">
-              Sign out
+              Sign out 
+              onClick= {handleLogOut}
             </a>
           </li>
         </ul>
