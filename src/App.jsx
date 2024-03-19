@@ -12,7 +12,7 @@ import {
   Accounts,
   Dashboard,
   Login,
-  LostPassword,
+  ResetPassword,
   Settings,
   SignUp,
   Statements,
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/login/reset-password',
-    element: <LostPassword />
+    element: <ResetPassword />
   },
   {
     path: '/users',

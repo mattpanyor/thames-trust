@@ -1,10 +1,12 @@
 import { useLocalStorage } from 'src/hooks';
 import { Button } from 'src/components/elements';
 import { useState } from 'react';
+import LostPasswordFormDTO from 'src/features/user/classes/LostPasswordFormDTO';
 
 export function LostPasswordForm() {
   const { userRepository } = useLocalStorage();
-  const [passwordResetFormData, setPasswordResetFormData] = useState({ email: '', password: '' });
+
+  const [passwordResetFormData, setPasswordResetFormData] = useState(new LostPasswordFormDTO());
 
   const [isChecked, setIsChecked] = useState(false);
 
