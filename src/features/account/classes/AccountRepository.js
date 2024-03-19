@@ -15,6 +15,16 @@ class AccountRepository extends EntityPersistence {
       return false;
     }
   }
+
+  updateBalance(id, amount) {
+    try {
+      const account = super.findById(id);
+      super.update({ ...account, balance: amount });
+    } catch (error) {
+      console.error('Error updating balance:', error);
+      return false;
+    }
+  }
 }
 
 export default AccountRepository;
