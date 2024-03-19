@@ -10,7 +10,7 @@ import {
 } from 'src/hooks';
 import { sleep, stringIdGenerator } from 'src/utils';
 
-export function AccountPaymentForm({ onShow }) {
+export function AccountPaymentForm({ toggleModalVisibility }) {
   const { accounts, setAccounts } = useAccountContext();
   const { setTransactions } = useTransactionContext();
   const { authentication } = useAuthentication();
@@ -42,47 +42,46 @@ export function AccountPaymentForm({ onShow }) {
     }));
   };
 
+  async function createNewTransaction() {
+    await transactionRepository.create(
+      new Transaction(
+        stringIdGenerator(15).toUpperCase(),
+        paymentFormData.senderId,
+        paymentFormData.receiverId,
+        paymentFormData.reference,
+        authenticatedUserId === paymentFormData.senderId
+          ? paymentFormData.amount
+          : -Math.abs(parseFloat(paymentFormData.amount))
+      )
+    );
+  }
+
+  const resetForm = () => {
+    setIsPending(false);
+    setDisabled(true);
+    setPaymentFormData(new PaymentFormDTO());
+  };
+
   const handleFormSubmit = async () => {
     setIsPending(true);
-    const resetForm = () => {
-      setIsPending(false);
-      setDisabled(true);
-      setPaymentFormData(new PaymentFormDTO());
-    };
-
     try {
       await sleep(1000);
-      const senderAccount = accountRepository.findById(parseInt(paymentFormData.senderId));
-      const receivingAccount = accountRepository.findById(parseInt(paymentFormData.receiverId));
+
+      const senderAccount = accountRepository.findById(paymentFormData.senderId);
+      const receivingAccount = accountRepository.findById(paymentFormData.receiverId);
 
       const newSenderBalance = senderAccount.balance - parseFloat(paymentFormData.amount);
       const newReceivingBalance = receivingAccount.balance + parseFloat(paymentFormData.amount);
 
       await Promise.all([
-        accountRepository.update({
-          ...senderAccount,
-          balance: newSenderBalance
-        }),
-        accountRepository.update({
-          ...receivingAccount,
-          balance: newReceivingBalance
-        })
+        accountRepository.updateBalance(senderAccount.id, newSenderBalance),
+        accountRepository.updateBalance(receivingAccount.id, newReceivingBalance)
       ]);
 
       setAccounts(accountRepository.findAll());
-      await transactionRepository.create(
-        new Transaction(
-          stringIdGenerator(15).toUpperCase(),
-          paymentFormData.senderId,
-          paymentFormData.receiverId,
-          paymentFormData.reference,
-          authenticatedUserId === paymentFormData.senderId
-            ? paymentFormData.amount
-            : -Math.abs(parseFloat(paymentFormData.amount))
-        )
-      );
+      await createNewTransaction();
       setTransactions(transactionRepository.findAll());
-      onShow();
+      toggleModalVisibility();
     } catch (error) {
       console.error('Error making payment:', error);
     } finally {
@@ -178,7 +177,7 @@ export function AccountPaymentForm({ onShow }) {
           className={'justify-center sm:w-full'}
         />
         <Button
-          onClick={onShow}
+          onClick={toggleModalVisibility}
           btnTxt={'Cancel'}
           className={
             'border border-red-600 bg-transparent text-red-600 hover:bg-red-600 hover:text-white focus:outline-none focus:ring-4 focus:ring-red-300 dark:border-red-500 dark:bg-transparent dark:text-red-500 dark:hover:bg-red-600 dark:hover:text-white dark:focus:ring-red-900 sm:w-full'
