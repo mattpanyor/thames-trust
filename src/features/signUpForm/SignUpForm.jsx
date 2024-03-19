@@ -1,5 +1,5 @@
 import './signUpForm.css';
-import 'src/utils/generatePassword';
+import generatePassword from 'src/utils/generatePassword.js';
 import { Button } from 'src/components/elements';
 import { useState } from 'react';
 
@@ -13,8 +13,6 @@ export function SignUpForm() {
     dob: '',
     password: ''
   });
-  console.log(form);
-
   const handleChange = (e) => {
     setForm({
       ...form,
