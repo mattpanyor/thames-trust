@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button } from 'src/components/elements';
 import Account from 'src/features/account/classes/Account.js';
 import { useAccountContext, useAuthentication, useLocalStorage } from 'src/hooks';
-import sleep from 'src/utils/sleep.js';
+import { sleep } from 'src/utils';
 
 export function AccountCreateForm({ onShow }) {
   const { accounts, setAccounts } = useAccountContext();
@@ -44,8 +44,7 @@ export function AccountCreateForm({ onShow }) {
       await accountRepository.create({
         ...account,
         type: selectedAccountType,
-        userId: userRepository.findUserByUsername(authentication.getAuthenticationToken().username)
-          .id
+        userId: authentication.getAuthenticatedUserId()
       });
       setAccounts(accountRepository.findAll());
       onShow();
