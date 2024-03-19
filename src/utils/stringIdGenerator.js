@@ -1,4 +1,4 @@
-const stringIdGenerator = (size) => {
+export function stringIdGenerator(size) {
   const allowedCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   let result = '';
   const charactersLength = allowedCharacters.length;
@@ -7,6 +7,4 @@ const stringIdGenerator = (size) => {
   }
 
   return result;
-};
-
-export default stringIdGenerator;
+}

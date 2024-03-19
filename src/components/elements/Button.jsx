@@ -1,5 +1,5 @@
 import { AnimatedSpinnerIcon } from 'src/components/SVGs';
-import cn from 'src/utils/twMerge.js';
+import { cn } from 'src/utils';
 
 export function Button({ btnType, btnTxt, value, className, onClick, isPending, isDisabled }) {
   return (

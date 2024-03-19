@@ -1,4 +1,4 @@
-import cn from 'src/utils/twMerge.js';
+import { cn } from 'src/utils';
 
 export function Input({ onChange, type, name, id, value, placeholder, className, validation }) {
   const baseClassNames =
