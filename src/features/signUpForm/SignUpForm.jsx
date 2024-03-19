@@ -137,6 +137,7 @@ export function SignUpForm() {
               required=""
             />
             <button onClick={generatePassword}>click me </button>
+            {/* <Button btnType={generatePassword} btnText={'Generate Password'} /> */}
           </div>
           <div className="mb-3 mt-6">
             <label
