@@ -31,7 +31,7 @@ export function TransactionListLine({ tr }) {
         </span>
       </td>
       <td className="whitespace-nowrap p-4 text-sm font-normal text-gray-500 dark:text-gray-400">
-        {tr.transactionDate}
+        {new Date(tr.transactionDate).toLocaleString()}
       </td>
       <td className="whitespace-nowrap p-4 text-sm font-normal text-gray-500 dark:text-gray-400">
         {tr.reference}
