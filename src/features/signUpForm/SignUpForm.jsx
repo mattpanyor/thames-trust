@@ -1,4 +1,5 @@
-import './signUpForm.css'
+import './signUpForm.css';
+import 'src/utils/generatePassword';
 import { Button } from 'src/components/elements';
 import { useState } from 'react';
 
@@ -10,16 +11,16 @@ export function SignUpForm() {
     postcode: '',
     email: '',
     dob: '',
-    password: '',
-})
-console.log(form);
+    password: ''
+  });
+  console.log(form);
 
-const handleChange = (e) => {
+  const handleChange = (e) => {
     setForm({
-        ...form,
-        [e.target.name]: e.target.value,
-})
-};
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
   return (
     <div className="w-full max-w-xl space-y-8 rounded-lg sm:p-8">
       <form action="#">
@@ -121,67 +122,70 @@ const handleChange = (e) => {
             />
           </div>
         </div>
-        <div className="mb-3 mt-6 rid grid-rows-1 basis-full">
-        <div className="mb-3 ">
-          <label
-            htmlFor="password"
-            className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-            Your password
-          </label>
-          <input
-            type="password"
-            onChange={handleChange}
-            name="password"
-            id="password"
-            placeholder="••••••••"
-            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
-            required=""
-          />
-        </div>
-        <div className="mt-6 mb-3">
-          <label
-            htmlFor="confirmPassword"
-            className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-            Confirm password
-          </label>
-          <input
-            type="password"
-            onChange={handleChange}
-            name="confirmPassword"
-            id="confirm-password"
-            placeholder="••••••••"
-            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
-            required=""
-          />
-        </div>
-        <div className="mt-6">
-          <div className="extra mx-auto flex">
-            <div className="agreement mr-3">
-              <input
-                id="remember"
-                aria-describedby="remember"
-                name="remember"
-                type="checkbox"
-                className="focus:ring-3 h-4 w-4 rounded border-gray-300 bg-gray-50 focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                required=""
-              />
-              <label htmlFor="remember" className="font-medium text-gray-900 dark:text-white ml-3">
-                I accept the{' '}
-                <a href="#" className="text-blue-700 hover:underline dark:text-blue-500">
-                  Terms and Conditions
-                </a>
-              </label>
-            </div>
-            <div className="extra mt-6 ">
-            <Button btnType={'submit'} btnText={'Register'} />
-            <div className="text-sm font-medium text-gray-500 dark:text-gray-400 mt-6">
-              Already have an account?{' '}
-              <link  className="text-blue-700 hover:underline dark:text-blue-500"/>
-                Login here
-            </div>
+        <div className="rid mb-3 mt-6 basis-full grid-rows-1">
+          <div className="mb-3 ">
+            <label
+              htmlFor="password"
+              className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+              Your password
+            </label>
+            <input
+              type="text"
+              onChange={handleChange}
+              name="password"
+              id="password"
+              placeholder="••••••••"
+              className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
+              required=""
+            />
+            <button onClick={generatePassword}>click me </button>
+          </div>
+          <div className="mb-3 mt-6">
+            <label
+              htmlFor="confirmPassword"
+              className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+              Confirm password
+            </label>
+            <input
+              type="password"
+              onChange={handleChange}
+              name="confirmPassword"
+              id="confirm-password"
+              placeholder="••••••••"
+              className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm"
+              required=""
+            />
+          </div>
+          <div className="mt-6">
+            <div className="extra mx-auto flex">
+              <div className="agreement mr-3">
+                <input
+                  id="remember"
+                  aria-describedby="remember"
+                  name="remember"
+                  type="checkbox"
+                  className="focus:ring-3 h-4 w-4 rounded border-gray-300 bg-gray-50 focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                  required=""
+                />
+                <label
+                  htmlFor="remember"
+                  className="ml-3 font-medium text-gray-900 dark:text-white">
+                  I accept the{' '}
+                  <a href="#" className="text-blue-700 hover:underline dark:text-blue-500">
+                    Terms and Conditions
+                  </a>
+                </label>
+              </div>
+              <div className="extra mt-6 ">
+                <Button btnType={'submit'} btnText={'Register'} />
+                <div className="mt-6 text-sm font-medium text-gray-500 dark:text-gray-400">
+                  Already have an account?{' '}
+                  <link className="text-blue-700 hover:underline dark:text-blue-500" />
+                  Login here
+                </div>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </form>
     </div>
