@@ -8,7 +8,7 @@ import {
   SettingsIcon,
   UserIcon
 } from 'src/components/SVGs';
-import cn from 'src/utils/twMerge.js';
+import { cn } from 'src/utils';
 
 export function NavigationMenu({ handleTodoDropdownClick, openDropdownId }) {
   return (
