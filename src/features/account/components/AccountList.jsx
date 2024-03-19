@@ -3,9 +3,9 @@ import { Button } from 'src/components/elements';
 import {
   AccountCreateForm,
   AccountListItem,
-  AccountPaymentForm
+  AccountPaymentForm,
+  ModalDrawer
 } from 'src/features/account/components';
-import ModalDrawer from 'src/features/account/components/ModalDrawer.jsx';
 import { useAccountContext, useAuthentication, useModalDrawerContext } from 'src/hooks';
 
 export function AccountList() {
@@ -13,25 +13,24 @@ export function AccountList() {
   const { authentication } = useAuthentication();
   const authenticatedUserId = authentication.getAuthenticatedUserId();
 
-  const [isDrawerOpen, setIsDrawerOpen] = useModalDrawerContext();
+  const [isDrawerModalOpen, setIsDrawerModalOpen] = useModalDrawerContext();
   const [modalType, setModalType] = useState(null);
 
   const handleModalOpenClick = (type) => {
-    setIsDrawerOpen(!isDrawerOpen);
+    setIsDrawerModalOpen(!isDrawerModalOpen);
     setModalType(type);
   };
 
   const modalComponents = {
-    createAccount: <AccountCreateForm onShow={handleModalOpenClick} />,
-    paymentForm: <AccountPaymentForm onShow={handleModalOpenClick} />
+    createAccount: <AccountCreateForm toggleModalVisibility={handleModalOpenClick} />,
+    paymentForm: <AccountPaymentForm toggleModalVisibility={handleModalOpenClick} />
   };
 
   return (
     <>
       <ModalDrawer
-        setIsDrawerOpen={setIsDrawerOpen}
-        isDrawerOpen={isDrawerOpen}
-        modalType={modalType}
+        setIsDrawerModalOpen={setIsDrawerModalOpen}
+        isDrawerModalOpen={isDrawerModalOpen}
         content={modalComponents[modalType]}
       />
 

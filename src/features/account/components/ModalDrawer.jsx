@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import { CloseIcon } from 'src/components/SVGs';
 
-export default function ModalDrawer({ isDrawerOpen, setIsDrawerOpen, content }) {
+export function ModalDrawer({ isDrawerModalOpen, setIsDrawerModalOpen, content }) {
   const handleModelDrawerDismiss = () => {
-    setIsDrawerOpen(false);
+    setIsDrawerModalOpen(false);
   };
 
   useEffect(() => {
     const handleBodyOverflow = () => {
-      document.body.classList.toggle('overflow-hidden', isDrawerOpen);
+      document.body.classList.toggle('overflow-hidden', isDrawerModalOpen);
     };
 
     document.body.addEventListener('click', handleBodyOverflow);
@@ -17,12 +17,12 @@ export default function ModalDrawer({ isDrawerOpen, setIsDrawerOpen, content }) 
       document.body.removeEventListener('click', handleBodyOverflow);
       document.body.classList.remove('overflow-hidden');
     };
-  }, [isDrawerOpen]);
+  }, [isDrawerModalOpen]);
 
   return (
     <>
       <div
-        className={`fixed right-0 top-0 z-40 ${isDrawerOpen ? 'right-0' : 'translate-x-full'}  h-screen w-full max-w-xs overflow-y-auto bg-white p-4 transition-transform duration-500 dark:bg-gray-800`}>
+        className={`fixed right-0 top-0 z-40 ${isDrawerModalOpen ? 'right-0' : 'translate-x-full'}  h-screen w-full max-w-xs overflow-y-auto bg-white p-4 transition-transform duration-500 dark:bg-gray-800`}>
         <h5
           id="drawer-label"
           className="mb-6 inline-flex items-center text-sm font-semibold uppercase text-gray-500 dark:text-gray-400">
@@ -38,7 +38,7 @@ export default function ModalDrawer({ isDrawerOpen, setIsDrawerOpen, content }) 
         {content}
       </div>
       <div
-        className={`${!isDrawerOpen && `hidden`} fixed inset-0 z-30 bg-gray-900 bg-opacity-50 dark:bg-opacity-80`}></div>
+        className={`${!isDrawerModalOpen && `hidden`} fixed inset-0 z-30 bg-gray-900 bg-opacity-50 dark:bg-opacity-80`}></div>
     </>
   );
 }
