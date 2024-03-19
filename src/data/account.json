@@ -3,16 +3,40 @@
     "id": 1,
     "accountNumber":"50613603",
     "sortCode": "25-82-01",
-    "balance": 1000,
+    "balance": 1254,
     "userId": 1,
     "type": "Current"
   },
   {
     "id": 2,
-    "accountNumber":"57574158",
-    "sortCode": "22-33-44",
-    "balance": 6788,
+    "accountNumber":"66314668",
+    "sortCode": "37-76-02",
+    "balance": 878,
     "userId": 1,
+    "type": "Current"
+  },
+  {
+    "id": 3,
+    "accountNumber":"50613603",
+    "sortCode": "49-05-03",
+    "balance": 2453,
+    "userId": 1,
+    "type": "Thames Saver"
+  },
+  {
+    "id": 4,
+    "accountNumber":"57574158",
+    "sortCode": "25995746",
+    "balance": 342,
+    "userId": 2,
+    "type": "Current"
+  },
+  {
+    "id": 5,
+    "accountNumber":"68915860",
+    "sortCode": "46-40-09",
+    "balance": 5763,
+    "userId": 2,
     "type": "Thames Saver"
   }
 ]
