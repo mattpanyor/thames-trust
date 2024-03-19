@@ -91,7 +91,7 @@ export function LoginForm() {
             <Label htmlFor={'remember'} labelTxt={'Remember me'} />
           </div>
           <Link
-            to={'/lostPassword'}
+            to={'/login/reset-password'}
             className="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500">
             Lost Password?
           </Link>
