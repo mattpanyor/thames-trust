@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from 'src/components/elements';
 import PaymentFormDTO from 'src/features/account/classes/PaymentFormDTO.js';
 import Transaction from 'src/features/transaction/classes/Transaction.js';
@@ -23,6 +23,7 @@ export function AccountTransactionForm({
   const authenticatedUserId = authentication.getAuthenticatedUserId();
   const [isDisabled, setDisabled] = useState(false);
   const [isPending, setIsPending] = useState(false);
+  const [isTransactionValid, setIsTransactionValid] = useState('');
 
   const [paymentFormData, setPaymentFormData] = useState({
     ...new PaymentFormDTO(),
@@ -46,12 +47,17 @@ export function AccountTransactionForm({
   }
 
   const handleOnChange = (e) => {
+    setIsTransactionValid('');
     const { name, value } = e.target;
     setPaymentFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value
     }));
   };
+
+  useEffect(() => {
+    setDisabled(Object.values(paymentFormData).some((val) => val === ''));
+  }, [paymentFormData]);
 
   async function createNewTransaction() {
     await transactionRepository.create(
@@ -67,12 +73,6 @@ export function AccountTransactionForm({
     );
   }
 
-  const resetForm = () => {
-    setIsPending(false);
-    setDisabled(true);
-    setPaymentFormData(new PaymentFormDTO());
-  };
-
   const handleFormSubmit = async () => {
     setIsPending(true);
     try {
@@ -84,6 +84,10 @@ export function AccountTransactionForm({
       const newSenderBalance = senderAccount.balance - parseFloat(paymentFormData.amount);
       const newReceivingBalance = receivingAccount.balance + parseFloat(paymentFormData.amount);
 
+      if (newSenderBalance < 0) {
+        throw new Error('Insufficient balance');
+      }
+
       await Promise.all([
         accountRepository.updateBalance(senderAccount.id, newSenderBalance),
         accountRepository.updateBalance(receivingAccount.id, newReceivingBalance)
@@ -94,9 +98,10 @@ export function AccountTransactionForm({
       setTransactions(transactionRepository.findAll());
       toggleModalVisibility();
     } catch (error) {
-      console.error('Error making payment:', error);
-    } finally {
-      resetForm();
+      console.error('Error making transaction:', error);
+      setIsPending(false);
+      setDisabled(true);
+      setIsTransactionValid('error');
     }
   };
 
@@ -183,6 +188,11 @@ export function AccountTransactionForm({
                 id="reference"
                 className="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"></input>
             </div>
+            <p
+              id="invalid-feedback"
+              className={`${isTransactionValid !== 'error' && `hidden`} mt-2 text-sm text-red-600 dark:text-red-500`}>
+              Insufficient balance
+            </p>
           </div>
         </form>
       </div>
