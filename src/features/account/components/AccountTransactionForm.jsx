@@ -10,12 +10,17 @@ import {
 } from 'src/hooks';
 import { sleep, stringIdGenerator } from 'src/utils';
 
-export function AccountPaymentForm({ toggleModalVisibility, initialSendingAccount }) {
+export function AccountTransactionForm({
+  toggleModalVisibility,
+  initialSendingAccount,
+  transactionType
+}) {
   const { accounts, setAccounts } = useAccountContext();
+  const { accountRepository, transactionRepository } = useLocalStorage();
   const { setTransactions } = useTransactionContext();
   const { authentication } = useAuthentication();
-  const { accountRepository, transactionRepository } = useLocalStorage();
 
+  const authenticatedUserId = authentication.getAuthenticatedUserId();
   const [isDisabled, setDisabled] = useState(false);
   const [isPending, setIsPending] = useState(false);
 
@@ -24,18 +29,21 @@ export function AccountPaymentForm({ toggleModalVisibility, initialSendingAccoun
     senderId: initialSendingAccount
   });
 
-  const authenticatedUserId = authentication.getAuthenticatedUserId();
-
   let authenticatedUserAccounts = [];
   let otherUserAccounts = [];
 
-  accounts.filter((account) => {
-    if (account.type === 'Current' && account.userId === authentication.getAuthenticatedUserId()) {
-      authenticatedUserAccounts.push(account);
-    } else if (account.type === 'Current') {
-      otherUserAccounts.push(account);
-    }
-  });
+  if (transactionType === 'pay') {
+    authenticatedUserAccounts = accounts.filter(
+      (account) => account.type === 'Current' && account.userId === authenticatedUserId
+    );
+    otherUserAccounts = accounts.filter(
+      (account) => account.type === 'Current' && account.userId !== authenticatedUserId
+    );
+  } else if (transactionType === 'transfer') {
+    authenticatedUserAccounts = accounts.filter(
+      (account) => account.userId === authenticatedUserId
+    );
+  }
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -109,13 +117,11 @@ export function AccountPaymentForm({ toggleModalVisibility, initialSendingAccoun
                 onChange={handleOnChange}
                 id="senderId"
                 className="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
-                <option>Select Payment From</option>
+                <option value="">Select Payment From</option>
                 {authenticatedUserAccounts.map((account) => (
-                  <option
-                    key={account.id}
-                    value={
-                      account.id
-                    }>{`${account.type} ${account.accountNumber} ${account.sortCode}`}</option>
+                  <option key={account.id} value={account.id}>
+                    {`${account.id} - ${account.type} ${account.accountNumber} ${account.sortCode}`}
+                  </option>
                 ))}
               </select>
             </div>
@@ -130,14 +136,22 @@ export function AccountPaymentForm({ toggleModalVisibility, initialSendingAccoun
                 onChange={handleOnChange}
                 id="receiverId"
                 className="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
-                <option>Select Payment To</option>
-                {otherUserAccounts.map((account) => (
-                  <option
-                    key={account.id}
-                    value={
-                      account.id
-                    }>{`${account.type} ${account.accountNumber} ${account.sortCode}`}</option>
-                ))}
+                <option value="">Select Payment To</option>
+                {transactionType === 'pay' && otherUserAccounts.length > 0 ? (
+                  otherUserAccounts.map((account) => (
+                    <option key={account.id} value={account.id}>
+                      {`${account.id} - ${account.type} ${account.accountNumber} ${account.sortCode}`}
+                    </option>
+                  ))
+                ) : transactionType === 'transfer' && authenticatedUserAccounts.length > 0 ? (
+                  authenticatedUserAccounts.map((account) => (
+                    <option key={account.id} value={account.id}>
+                      {`${account.id} - ${account.type} ${account.accountNumber} ${account.sortCode}`}
+                    </option>
+                  ))
+                ) : (
+                  <option value="">No accounts available</option>
+                )}
               </select>
             </div>
             <div>
