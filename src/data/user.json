@@ -3,8 +3,8 @@
     "id": 1,
     "firstName": "James",
     "lastName": "Brown",
-    "username": "info@example.org",
-    "emailAddress": "info@example.org",
+    "username": "demo@demo.com",
+    "emailAddress": "demo@demo.com",
     "password": "12345"
   },
   {
