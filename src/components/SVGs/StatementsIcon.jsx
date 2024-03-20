@@ -2,7 +2,7 @@ export function StatementsIcon() {
   return (
     <>
       <svg
-        className="h-6 w-6 flex-shrink-0 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+        className="h-6 w-6 flex-shrink-0 fill-current text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1024 1024">
         <path d="M232.016 448.004c-4.42 0-8-3.578-8-8V168.022c0-4.422 3.578-8 8-8 4.422 0 8 3.578 8 8v271.982c0 4.422-3.578 8-8 8z" />
