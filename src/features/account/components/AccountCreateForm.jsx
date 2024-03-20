@@ -4,12 +4,11 @@ import Account from 'src/features/account/classes/Account.js';
 import { useAccountContext, useAuthentication, useLocalStorage } from 'src/hooks';
 import { sleep } from 'src/utils';
 
-export function AccountCreateForm({ onShow }) {
+export function AccountCreateForm({ toggleModalVisibility }) {
   const { accounts, setAccounts } = useAccountContext();
   const [account, setAccount] = useState(new Account());
 
   const { authentication } = useAuthentication();
-  const { userRepository } = useLocalStorage();
 
   const { accountRepository } = useLocalStorage();
   const [isDisabled, setDisabled] = useState(true);
@@ -29,17 +28,16 @@ export function AccountCreateForm({ onShow }) {
     setSelectedAccountType(event.target.value);
   };
 
+  const resetForm = () => {
+    setIsPending(false);
+    setDisabled(true);
+    handleCheckboxChange();
+    setSelectedAccountType(false);
+  };
+
   const handleFormSubmit = async () => {
     setIsPending(true);
     await sleep(1000);
-
-    const resetForm = () => {
-      setIsPending(false);
-      setDisabled(true);
-      handleCheckboxChange();
-      setSelectedAccountType(false);
-    };
-
     try {
       await accountRepository.create({
         ...account,
@@ -47,7 +45,7 @@ export function AccountCreateForm({ onShow }) {
         userId: authentication.getAuthenticatedUserId()
       });
       setAccounts(accountRepository.findAll());
-      onShow();
+      toggleModalVisibility();
     } catch (error) {
       console.error('Error creating account:', error);
     } finally {
@@ -127,7 +125,7 @@ export function AccountCreateForm({ onShow }) {
           className={'justify-center sm:w-full'}
         />
         <Button
-          onClick={onShow}
+          onClick={toggleModalVisibility}
           btnTxt={'Cancel'}
           className={
             'border border-red-600 bg-transparent text-red-600 hover:bg-red-600 hover:text-white focus:outline-none focus:ring-4 focus:ring-red-300 dark:border-red-500 dark:bg-transparent dark:text-red-500 dark:hover:bg-red-600 dark:hover:text-white dark:focus:ring-red-900 sm:w-full'

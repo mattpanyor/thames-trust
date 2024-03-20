@@ -1,9 +1,20 @@
 import { Button } from 'src/components/elements';
 
-export function AccountListItem({ account, onClick }) {
+export function AccountListItem({
+  account,
+  onClick,
+  setInitialSendingAccount,
+  setTransactionType
+}) {
+  const handleButtonClick = (transactionType) => {
+    onClick();
+    setInitialSendingAccount(account.id);
+    setTransactionType(transactionType);
+  };
+
   return (
     <>
-      <div key={account.id} className="col-span-full xl:col-auto">
+      <div id={account.id} key={account.id} className="col-span-full xl:col-auto">
         <div className="mb-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6 2xl:col-span-2">
           <div className="items-center sm:flex sm:space-x-4 xl:block xl:space-x-0 2xl:flex 2xl:space-x-4">
             <div>
@@ -23,7 +34,16 @@ export function AccountListItem({ account, onClick }) {
               </h5>
               <div className="mb-4 text-sm text-gray-500 dark:text-gray-400"></div>
               <div className="flex items-center space-x-4">
-                <Button onClick={onClick} btnTxt={'Pay & Transfer'} className={'px-3 py-2'} />
+                <Button
+                  onClick={() => handleButtonClick('pay')}
+                  btnTxt={'Pay'}
+                  className={'px-3 py-2'}
+                />
+                <Button
+                  onClick={() => handleButtonClick('transfer')}
+                  btnTxt={'Transfer'}
+                  className={'px-3 py-2'}
+                />
                 <Button
                   btnTxt={'Direct Debits'}
                   className={
