@@ -1,4 +1,4 @@
-import { LostPasswordForm } from '../features/user/components/login/LostPasswordForm';
+import { LostPasswordForm } from 'src/features/user/components/login/LostPasswordForm';
 import { NavbarFullWidthLayout } from 'src/layouts';
 
 export function ResetPassword() {
