@@ -4,8 +4,9 @@ import { useAuthentication } from 'src/hooks'
 export function UserMenuToggle({ dropdownRef, isUserMenuOpen, handleUserMenuClick }) {
   const { authentication } = useAuthentication();
   const navigate = useNavigate();
+  const authenticatedUser = authentication.getAuthenticatedUser();
 
-    const handleLogout = () => {
+    const handleLogOut = () => {
         authentication.logout();
         navigate('/login')
     }
