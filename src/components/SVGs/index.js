@@ -10,4 +10,6 @@ export { InfoIcon } from './InfoIcon.jsx';
 export { LinkedinIcon } from './LinkedinIcon.jsx';
 export { SearchIcon } from './SearchIcon.jsx';
 export { SettingsIcon } from './SettingsIcon.jsx';
+export { StatementsIcon } from './StatementsIcon.jsx';
+export { TransactionIcon } from './TransactionIcon.jsx';
 export { UserIcon } from './UserIcon.jsx';
