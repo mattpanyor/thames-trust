@@ -39,7 +39,7 @@ export function LoginForm() {
       setValidationStyle('success');
 
       await sleep(1000);
-      navigate('/users');
+      navigate('/dashboard');
     } catch (error) {
       console.error('Error while logging in:', error);
       setIsPending(false);
