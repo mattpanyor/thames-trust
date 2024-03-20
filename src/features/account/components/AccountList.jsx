@@ -3,7 +3,7 @@ import { Button } from 'src/components/elements';
 import {
   AccountCreateForm,
   AccountListItem,
-  AccountPaymentForm,
+  AccountTransactionForm,
   ModalDrawer
 } from 'src/features/account/components';
 import { useAccountContext, useAuthentication, useModalDrawerContext } from 'src/hooks';
@@ -17,6 +17,8 @@ export function AccountList() {
   const [modalType, setModalType] = useState(null);
   const [initialSendingAccount, setInitialSendingAccount] = useState(null);
 
+  const [transactionType, setTransactionType] = useState(null);
+
   const handleModalOpenClick = (type) => {
     setIsDrawerModalOpen(!isDrawerModalOpen);
     setModalType(type);
@@ -24,8 +26,9 @@ export function AccountList() {
 
   const modalComponents = {
     createAccount: <AccountCreateForm toggleModalVisibility={handleModalOpenClick} />,
-    paymentForm: (
-      <AccountPaymentForm
+    transactionForm: (
+      <AccountTransactionForm
+        transactionType={transactionType}
         initialSendingAccount={initialSendingAccount}
         toggleModalVisibility={handleModalOpenClick}
       />
@@ -70,9 +73,10 @@ export function AccountList() {
         .map((account) => (
           <AccountListItem
             key={account.id}
-            onClick={() => handleModalOpenClick('paymentForm')}
+            onClick={() => handleModalOpenClick('transactionForm')}
             account={account}
             setInitialSendingAccount={setInitialSendingAccount}
+            setTransactionType={setTransactionType}
           />
         ))}
     </>
