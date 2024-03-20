@@ -1,9 +1,15 @@
 import { Button } from 'src/components/elements';
 
-export function AccountListItem({ account, onClick, setInitialSendingAccount }) {
-  const handleButtonClick = () => {
+export function AccountListItem({
+  account,
+  onClick,
+  setInitialSendingAccount,
+  setTransactionType
+}) {
+  const handleButtonClick = (transactionType) => {
     onClick();
     setInitialSendingAccount(account.id);
+    setTransactionType(transactionType);
   };
 
   return (
@@ -29,8 +35,13 @@ export function AccountListItem({ account, onClick, setInitialSendingAccount }) 
               <div className="mb-4 text-sm text-gray-500 dark:text-gray-400"></div>
               <div className="flex items-center space-x-4">
                 <Button
-                  onClick={handleButtonClick}
-                  btnTxt={'Pay & Transfer'}
+                  onClick={() => handleButtonClick('pay')}
+                  btnTxt={'Pay'}
+                  className={'px-3 py-2'}
+                />
+                <Button
+                  onClick={() => handleButtonClick('transfer')}
+                  btnTxt={'Transfer'}
                   className={'px-3 py-2'}
                 />
                 <Button
