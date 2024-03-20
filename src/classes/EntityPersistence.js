@@ -76,7 +76,7 @@ class EntityPersistence {
       let foundEntity = false;
       const entitiesMap = this._loadEntities();
 
-      if (entitiesMap.has(id)) foundEntity = entitiesMap.get(id);
+      if (entitiesMap.has(parseInt(id))) foundEntity = entitiesMap.get(parseInt(id));
 
       return foundEntity;
     } catch (error) {

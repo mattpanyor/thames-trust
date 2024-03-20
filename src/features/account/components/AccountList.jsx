@@ -3,9 +3,9 @@ import { Button } from 'src/components/elements';
 import {
   AccountCreateForm,
   AccountListItem,
-  AccountPaymentForm
+  AccountTransactionForm,
+  ModalDrawer
 } from 'src/features/account/components';
-import ModalDrawer from 'src/features/account/components/ModalDrawer.jsx';
 import { useAccountContext, useAuthentication, useModalDrawerContext } from 'src/hooks';
 
 export function AccountList() {
@@ -13,25 +13,33 @@ export function AccountList() {
   const { authentication } = useAuthentication();
   const authenticatedUserId = authentication.getAuthenticatedUserId();
 
-  const [isDrawerOpen, setIsDrawerOpen] = useModalDrawerContext();
+  const [isDrawerModalOpen, setIsDrawerModalOpen] = useModalDrawerContext();
   const [modalType, setModalType] = useState(null);
+  const [initialSendingAccount, setInitialSendingAccount] = useState(null);
+
+  const [transactionType, setTransactionType] = useState(null);
 
   const handleModalOpenClick = (type) => {
-    setIsDrawerOpen(!isDrawerOpen);
+    setIsDrawerModalOpen(!isDrawerModalOpen);
     setModalType(type);
   };
 
   const modalComponents = {
-    createAccount: <AccountCreateForm onShow={handleModalOpenClick} />,
-    paymentForm: <AccountPaymentForm onShow={handleModalOpenClick} />
+    createAccount: <AccountCreateForm toggleModalVisibility={handleModalOpenClick} />,
+    transactionForm: (
+      <AccountTransactionForm
+        transactionType={transactionType}
+        initialSendingAccount={initialSendingAccount}
+        toggleModalVisibility={handleModalOpenClick}
+      />
+    )
   };
 
   return (
     <>
       <ModalDrawer
-        setIsDrawerOpen={setIsDrawerOpen}
-        isDrawerOpen={isDrawerOpen}
-        modalType={modalType}
+        setIsDrawerModalOpen={setIsDrawerModalOpen}
+        isDrawerModalOpen={isDrawerModalOpen}
         content={modalComponents[modalType]}
       />
 
@@ -65,8 +73,10 @@ export function AccountList() {
         .map((account) => (
           <AccountListItem
             key={account.id}
-            onClick={() => handleModalOpenClick('paymentForm')}
+            onClick={() => handleModalOpenClick('transactionForm')}
             account={account}
+            setInitialSendingAccount={setInitialSendingAccount}
+            setTransactionType={setTransactionType}
           />
         ))}
     </>
