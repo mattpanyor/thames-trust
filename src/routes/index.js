@@ -7,3 +7,4 @@ export { SignUp } from './SignUp.jsx';
 export { Statements } from './Statements.jsx';
 export { Transactions } from './Transactions.jsx';
 export { Users } from './Users.jsx';
+export { Homepage } from './Homepage.jsx';

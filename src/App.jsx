@@ -17,13 +17,14 @@ import {
   SignUp,
   Statements,
   Transactions,
-  Users
+  Users,
+  Homepage
 } from 'src/routes';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Dashboard />,
+    element: <Homepage />,
     errorElement: <ErrorPage />
   },
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
   {
     path: '/settings',
     element: <Settings />
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard />
   }
 ]);
 
