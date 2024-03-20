@@ -2,8 +2,8 @@
   {
     "id": 1,
     "transactionId": "8DYYPV8DIDAPKDR",
-    "senderId": "Matt",
-    "receiverId": "Becky",
+    "senderId": 1,
+    "receiverId": 3,
     "reference": "Bonus",
     "amount": -2125,
     "transactionDate": 1670584800000
@@ -11,8 +11,8 @@
   {
     "id": 2,
     "transactionId": "YBRA5HJ0KKD7XTN",
-    "senderId": "Becky",
-    "receiverId": "Matt",
+    "senderId": 1,
+    "receiverId": 4,
     "reference": "Loan",
     "amount": 2937,
     "transactionDate": 1676128800000
@@ -20,8 +20,8 @@
   {
     "id": 3,
     "transactionId": "CGMZSKNFVCWDHRG",
-    "senderId": "Matt",
-    "receiverId": "XYZ Corp",
+    "senderId": 1,
+    "receiverId": 4,
     "reference": "Expense",
     "amount": -1503,
     "transactionDate": 1670234400000
@@ -29,8 +29,8 @@
   {
     "id": 4,
     "transactionId": "EDESDJUG2YKRAHJ",
-    "senderId": "ABC Corp",
-    "receiverId": "Matt",
+    "senderId": 1,
+    "receiverId": 4,
     "reference": "Reimbursement",
     "amount": 1924,
     "transactionDate": 1679272800000
@@ -38,8 +38,8 @@
   {
     "id": 5,
     "transactionId": "KZGQH931OT0UCKM",
-    "senderId": "Matt",
-    "receiverId": "Jane",
+    "senderId": 1,
+    "receiverId": 4,
     "reference": "Salary",
     "amount": -3109,
     "transactionDate": 1677223200000
@@ -47,8 +47,8 @@
   {
     "id": 6,
     "transactionId": "VOIINMV4J8KR7B1",
-    "senderId": "Jake",
-    "receiverId": "Matt",
+    "senderId": 1,
+    "receiverId": 4,
     "reference": "Donation",
     "amount": 2856,
     "transactionDate": 1680050400000
@@ -56,8 +56,8 @@
   {
     "id": 7,
     "transactionId": "6SUVZOTM4DP6AVI",
-    "senderId": "Matt",
-    "receiverId": "John",
+    "senderId": 1,
+    "receiverId": 4,
     "reference": "Bonus",
     "amount": -2487,
     "transactionDate": 1679181600000
@@ -65,8 +65,8 @@
   {
     "id": 8,
     "transactionId": "JOJRGH0W3LTWA6W",
-    "senderId": "Kate",
-    "receiverId": "Matt",
+    "senderId": 1,
+    "receiverId": 4,
     "reference": "Payment",
     "amount": 1821,
     "transactionDate": 1678341600000
@@ -74,8 +74,8 @@
   {
     "id": 9,
     "transactionId": "QOJ5RPRSNH4V1HU",
-    "senderId": "Matt",
-    "receiverId": "Lily",
+    "senderId": 1,
+    "receiverId": 4,
     "reference": "Refund",
     "amount": -3240,
     "transactionDate": 1679964000000
@@ -83,8 +83,8 @@
   {
     "id": 10,
     "transactionId": "8C3SFIQNVFLWRJR",
-    "senderId": "Mark",
-    "receiverId": "Matt",
+    "senderId": 4,
+    "receiverId": 1,
     "reference": "Sponsorship",
     "amount": 1765,
     "transactionDate": 1676450400000
@@ -92,8 +92,8 @@
   {
     "id": 11,
     "transactionId": "NXHGZAIYC6FIAEE",
-    "senderId": "Matt",
-    "receiverId": "Noah",
+    "senderId": 4,
+    "receiverId": 1,
     "reference": "Incentive",
     "amount": -2127,
     "transactionDate": 1678855200000
@@ -101,8 +101,8 @@
   {
     "id": 12,
     "transactionId": "CY7BRCNTAB0U9QK",
-    "senderId": "Olivia",
-    "receiverId": "Matt",
+    "senderId": 4,
+    "receiverId": 1,
     "reference": "Commission",
     "amount": 2999,
     "transactionDate": 1672984800000
@@ -110,8 +110,8 @@
   {
     "id": 13,
     "transactionId": "2LQNNV7E9HJ82YJ",
-    "senderId": "Matt",
-    "receiverId": "Peter",
+    "senderId": 4,
+    "receiverId": 1,
     "reference": "Allowance",
     "amount": -2356,
     "transactionDate": 1674516000000
@@ -119,8 +119,8 @@
   {
     "id": 14,
     "transactionId": "9M1AINM0YF5P9B0",
-    "senderId": "Rachel",
-    "receiverId": "Matt",
+    "senderId": 4,
+    "receiverId": 5,
     "reference": "Dividend",
     "amount": 1985,
     "transactionDate": 1679484000000
@@ -128,8 +128,8 @@
   {
     "id": 15,
     "transactionId": "GKHWKTBCFPRRH4J",
-    "senderId": "Matt",
-    "receiverId": "Sam",
+    "senderId": 4,
+    "receiverId": 2,
     "reference": "Grant",
     "amount": -3067,
     "transactionDate": 1674069600000
