@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'src/components/elements';
 import { Input, Label } from 'src/components/form';
+import LoginFormDTO from 'src/features/user/classes/LoginFormDTO.js';
 import { useAuthentication } from 'src/hooks';
 import { sleep } from 'src/utils';
 
@@ -11,7 +12,7 @@ export function LoginForm() {
   const { authentication } = useAuthentication();
   const [isDisabled, setDisabled] = useState(true);
   const [isPending, setIsPending] = useState(false);
-  const [validationStyle, setValidationStyle] = useState('');
+  const [validationStyle, setValidationStyle] = useState(new LoginFormDTO());
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
