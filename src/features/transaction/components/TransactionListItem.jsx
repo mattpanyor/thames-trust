@@ -17,7 +17,7 @@ export function TransactionListItem({ transaction }) {
   };
 
   return (
-    <tr className="border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+    <tr className="border-b odd:bg-white even:bg-gray-50 hover:bg-gray-100 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800 dark:hover:bg-gray-700">
       <td className="whitespace-nowrap p-4 text-sm font-normal text-gray-900 dark:text-white">
         {isTransactionOutgoing(transaction.amount) ? 'Payment to ' : 'Payment from '}
         <span className="font-semibold">
