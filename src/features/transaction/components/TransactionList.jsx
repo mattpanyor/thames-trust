@@ -4,14 +4,13 @@ import {
   TransactionListItem,
   TransactionViewFooter
 } from 'src/features/transaction/components';
-import { useLocalStorage, useTransactionContext } from 'src/hooks';
+import { useTransactionContext } from 'src/hooks';
 
 export function TransactionList() {
   const transactionPerPage = 6; // Transactions per page.
 
   const [currentPage, setCurrentPage] = useState(0);
   const [transactionView, setTransactionView] = useState([]);
-  const { transactionRepository, userRepository, accountRepository } = useLocalStorage();
 
   const { transactions, setTransactions } = useTransactionContext();
 
@@ -30,7 +29,7 @@ export function TransactionList() {
 
   return (
     <>
-      <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
+      <div className="bg-white p-4 shadow-sm dark:bg-gray-800 sm:p-6">
         <div className="w-full">
           {/* Card header */}
           <TransactionFilter />
