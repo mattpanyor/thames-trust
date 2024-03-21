@@ -52,9 +52,9 @@ export function LandingPage() {
             </div>
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              <a
+              <Link
                 className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-                href="#">
+                to="#">
                 <span className="inline-block rounded-lg bg-gray-50 p-3">
                   <svg
                     fill="#000000"
@@ -63,19 +63,15 @@ export function LandingPage() {
                     version="1.1"
                     id="Capa_1"
                     xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 490.35 490.35"
-                    xml:space="preserve">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
-
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-
+                    xmlSpace="preserve">
+                    <g id="SVGRepo_bgCarrier" strokeWidth={0} />
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
                     <g id="SVGRepo_iconCarrier">
-                      {' '}
                       <g>
-                        {' '}
-                        <path d="M15.075,106.65l279.7,161.5c3.9,2.2,10.1,2.2,13.9,0l166.8-96.9c3.8-2.2,3.8-5.8,0-8.1l-279.8-161.5 c-3.8-2.2-10.1-2.2-13.9,0l-166.8,96.9C11.175,100.75,11.175,104.45,15.075,106.65z M86.275,87.65c-1.6-0.9-3.2-1.7-5-2.4 l77.7-45.2c1.2,1,2.5,2,4.1,2.9c14.2,8.2,37.2,8.2,51.4,0c1.6-0.9,3-1.9,4.2-3l189.1,109.2c-2.5,0.9-4.9,1.9-7,3.2 c-14.1,8.2-14.1,21.5,0.2,29.8c2.2,1.3,4.6,2.3,7.2,3.2l-78.5,45.6c-1.5-1.5-3.4-2.9-5.6-4.1c-14.2-8.2-37.2-8.2-51.4,0 c-1.1,0.6-2,1.3-2.9,2l-188.5-109c1.8-0.7,3.5-1.5,5.2-2.5C100.575,109.15,100.475,95.85,86.275,87.65z M311.675,180.35l12.3-7.2 c1.9-1.1,5-1.1,6.9,0l21.6,12.5c1.9,1.1,1.9,2.9,0,4l-12.3,7.2c-1.9,1.1-5,1.1-6.9,0l-21.6-12.5 C309.775,183.25,309.775,181.45,311.675,180.35z M138.075,80.15l12.3-7.2c1.9-1.1,5-1.1,6.9,0l21.6,12.5c1.9,1.1,1.9,2.9,0,4 l-12.3,7.2c-1.9,1.1-5,1.1-6.9,0l-21.6-12.5C136.175,83.05,136.175,81.25,138.075,80.15z M456.575,212.85l21.8,12.6l-174.8,101.5 l-5.7-3.3l-16.1-9.3l-269.8-155.9l21.6-12.6l269.8,155.9L456.575,212.85z M282.075,369.05l-270.1-156.2l21.6-12.5l270.1,156.2 l152.6-88.7l21.7,12.5l-174.1,101.2l-5.6-3.3L282.075,369.05z M456.575,321.55l21.8,12.6l-174.8,101.5l-5.7-3.3l-16.1-9.3 l-269.8-155.8l21.6-12.6l269.8,155.9L456.575,321.55z M282.075,477.75l-270.1-156.2l21.6-12.5l270.1,156.2l152.6-88.7l21.7,12.5 l-174.1,101.3l-5.6-3.3L282.075,477.75z M189.475,167.15c30.7,17.7,80.5,17.7,111.2-0.1c30.6-17.8,30.6-46.6-0.1-64.4 c-30.8-17.8-80.6-17.7-111.2,0.1C158.675,120.55,158.675,149.35,189.475,167.15z M205.075,120.25l4.3-2.5c1.1-0.6,2.8-0.6,3.9,0 l5.3,3.1c1.2-0.7,2.3-1.4,3.5-2l-5.3-3.1c-1.1-0.6-1.1-1.6,0-2.2l4.3-2.5c1.1-0.6,2.8-0.6,3.9,0l6.7,3.9l0.9-0.3 c7.6-2.3,15.6-3.3,24.1-2.7c6.7,0.5,12.7,2.1,18.2,4.4c2.2,0.9,4.2,1.9,6,2.9c4.8,2.8,8.4,6,11.3,9.7l0.6,1 c0.6,1.4-0.1,2.3-2.4,2.8c-2.4,0.6-4.8,1.2-7.2,1.7c-1.7,0.4-2.9,0.3-3.9-0.3c-0.3-0.2-0.5-0.3-0.8-0.5c-1.6-1.5-3.1-3.1-4.8-4.6 c-1.5-1.4-3.2-2.6-5.1-3.7c-2.5-1.5-5.5-2.7-9-3.5c-5.2-1.3-10.4-1-15.5,0.2l-0.2,0.1l13.1,7.5c1.1,0.6,1.1,1.6,0,2.2l-4.3,2.5 c-1.1,0.6-2.8,0.6-3.9,0l-15-8.6c-1.1,0.7-2.3,1.3-3.5,2l15,8.6c1.1,0.6,1.1,1.6,0,2.2l-4.3,2.5c-1.1,0.6-2.8,0.6-3.9,0l-13.7-7.9 c-3,3.7-4,7.4-0.6,11.2c1.5,1.6,3.4,3,5.5,4.3c1.9,1.1,4,2.1,6.3,3c2.5,0.9,5.2,1.8,7.9,2.7c0.4,0.2,0.8,0.3,1.1,0.5 c1,0.6,1.2,1.3,0.6,2.3c-0.9,1.5-1.9,2.9-3,4.3c-0.9,1.3-2.6,1.7-4.9,1.3c-2.4-0.5-4.7-1.2-7-1.9c-4.2-1.4-8-3-11.3-4.9 c-3.5-2-6.4-4.3-8.7-6.9c-5.5-6.2-5.4-12.6-0.9-19c0.9-1.3,2.1-2.4,3.2-3.6l-6.4-3.7C203.975,121.85,203.975,120.85,205.075,120.25 z" />{' '}
-                      </g>{' '}
+                        <path d="M15.075,106.65l279.7,161.5c3.9,2.2,10.1,2.2,13.9,0l166.8-96.9c3.8-2.2,3.8-5.8,0-8.1l-279.8-161.5 c-3.8-2.2-10.1-2.2-13.9,0l-166.8,96.9C11.175,100.75,11.175,104.45,15.075,106.65z M86.275,87.65c-1.6-0.9-3.2-1.7-5-2.4 l77.7-45.2c1.2,1,2.5,2,4.1,2.9c14.2,8.2,37.2,8.2,51.4,0c1.6-0.9,3-1.9,4.2-3l189.1,109.2c-2.5,0.9-4.9,1.9-7,3.2 c-14.1,8.2-14.1,21.5,0.2,29.8c2.2,1.3,4.6,2.3,7.2,3.2l-78.5,45.6c-1.5-1.5-3.4-2.9-5.6-4.1c-14.2-8.2-37.2-8.2-51.4,0 c-1.1,0.6-2,1.3-2.9,2l-188.5-109c1.8-0.7,3.5-1.5,5.2-2.5C100.575,109.15,100.475,95.85,86.275,87.65z M311.675,180.35l12.3-7.2 c1.9-1.1,5-1.1,6.9,0l21.6,12.5c1.9,1.1,1.9,2.9,0,4l-12.3,7.2c-1.9,1.1-5,1.1-6.9,0l-21.6-12.5 C309.775,183.25,309.775,181.45,311.675,180.35z M138.075,80.15l12.3-7.2c1.9-1.1,5-1.1,6.9,0l21.6,12.5c1.9,1.1,1.9,2.9,0,4 l-12.3,7.2c-1.9,1.1-5,1.1-6.9,0l-21.6-12.5C136.175,83.05,136.175,81.25,138.075,80.15z M456.575,212.85l21.8,12.6l-174.8,101.5 l-5.7-3.3l-16.1-9.3l-269.8-155.9l21.6-12.6l269.8,155.9L456.575,212.85z M282.075,369.05l-270.1-156.2l21.6-12.5l270.1,156.2 l152.6-88.7l21.7,12.5l-174.1,101.2l-5.6-3.3L282.075,369.05z M456.575,321.55l21.8,12.6l-174.8,101.5l-5.7-3.3l-16.1-9.3 l-269.8-155.8l21.6-12.6l269.8,155.9L456.575,321.55z M282.075,477.75l-270.1-156.2l21.6-12.5l270.1,156.2l152.6-88.7l21.7,12.5 l-174.1,101.3l-5.6-3.3L282.075,477.75z M189.475,167.15c30.7,17.7,80.5,17.7,111.2-0.1c30.6-17.8,30.6-46.6-0.1-64.4 c-30.8-17.8-80.6-17.7-111.2,0.1C158.675,120.55,158.675,149.35,189.475,167.15z M205.075,120.25l4.3-2.5c1.1-0.6,2.8-0.6,3.9,0 l5.3,3.1c1.2-0.7,2.3-1.4,3.5-2l-5.3-3.1c-1.1-0.6-1.1-1.6,0-2.2l4.3-2.5c1.1-0.6,2.8-0.6,3.9,0l6.7,3.9l0.9-0.3 c7.6-2.3,15.6-3.3,24.1-2.7c6.7,0.5,12.7,2.1,18.2,4.4c2.2,0.9,4.2,1.9,6,2.9c4.8,2.8,8.4,6,11.3,9.7l0.6,1 c0.6,1.4-0.1,2.3-2.4,2.8c-2.4,0.6-4.8,1.2-7.2,1.7c-1.7,0.4-2.9,0.3-3.9-0.3c-0.3-0.2-0.5-0.3-0.8-0.5c-1.6-1.5-3.1-3.1-4.8-4.6 c-1.5-1.4-3.2-2.6-5.1-3.7c-2.5-1.5-5.5-2.7-9-3.5c-5.2-1.3-10.4-1-15.5,0.2l-0.2,0.1l13.1,7.5c1.1,0.6,1.1,1.6,0,2.2l-4.3,2.5 c-1.1,0.6-2.8,0.6-3.9,0l-15-8.6c-1.1,0.7-2.3,1.3-3.5,2l15,8.6c1.1,0.6,1.1,1.6,0,2.2l-4.3,2.5c-1.1,0.6-2.8,0.6-3.9,0l-13.7-7.9 c-3,3.7-4,7.4-0.6,11.2c1.5,1.6,3.4,3,5.5,4.3c1.9,1.1,4,2.1,6.3,3c2.5,0.9,5.2,1.8,7.9,2.7c0.4,0.2,0.8,0.3,1.1,0.5 c1,0.6,1.2,1.3,0.6,2.3c-0.9,1.5-1.9,2.9-3,4.3c-0.9,1.3-2.6,1.7-4.9,1.3c-2.4-0.5-4.7-1.2-7-1.9c-4.2-1.4-8-3-11.3-4.9 c-3.5-2-6.4-4.3-8.7-6.9c-5.5-6.2-5.4-12.6-0.9-19c0.9-1.3,2.1-2.4,3.2-3.6l-6.4-3.7C203.975,121.85,203.975,120.85,205.075,120.25 z" />
+                      </g>
                     </g>
                   </svg>
                 </span>
@@ -87,11 +83,11 @@ export function LandingPage() {
                 <p className="hidden dark:text-white sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
                   Unlock perks with our current accounts; banking made smarter.
                 </p>
-              </a>
+              </Link>
 
-              <a
+              <Link
                 className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-                href="#">
+                to="#">
                 <span className="inline-block rounded-lg bg-gray-50 p-3">
                   <svg
                     fill="#000000"
@@ -100,12 +96,11 @@ export function LandingPage() {
                     version="1.1"
                     id="Layer_1"
                     xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 512 512"
-                    xml:space="preserve">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                    xmlSpace="preserve">
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
 
                     <g id="SVGRepo_iconCarrier">
                       {' '}
@@ -162,11 +157,11 @@ export function LandingPage() {
                 <p className="hidden dark:text-white sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
                   Secure your future with us; savings that grow with you.
                 </p>
-              </a>
+              </Link>
 
-              <a
+              <Link
                 className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-                href="#">
+                to="#">
                 <span className="inline-block rounded-lg bg-gray-50 p-3">
                   <svg
                     fill="#000000"
@@ -175,12 +170,11 @@ export function LandingPage() {
                     version="1.1"
                     id="Capa_1"
                     xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 490.2 490.2"
-                    xml:space="preserve">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                    xmlSpace="preserve">
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
 
                     <g id="SVGRepo_iconCarrier">
                       {' '}
@@ -202,25 +196,24 @@ export function LandingPage() {
                 <p className="hidden dark:text-white sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
                   Swipe into possibilities; credit cards that reward your lifestyle.
                 </p>
-              </a>
+              </Link>
 
-              <a
+              <Link
                 className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-                href="#">
+                to="#">
                 <span className="inline-block rounded-lg bg-gray-50 p-3">
                   <svg
                     fill="#000000"
                     version="1.1"
                     id="Capa_1"
                     xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 60 60"
-                    xml:space="preserve"
+                    xmlSpace="preserve"
                     width="36px"
                     height="36px">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
 
                     <g id="SVGRepo_iconCarrier">
                       {' '}
@@ -250,11 +243,11 @@ export function LandingPage() {
                 <p className="hidden dark:text-white sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
                   Plant seeds for tomorrow; investments that pave your path to success.
                 </p>
-              </a>
+              </Link>
 
-              <a
+              <Link
                 className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-                href="#">
+                to="#">
                 <span className="inline-block rounded-lg bg-gray-50 p-3">
                   <svg
                     fill="#000000"
@@ -263,12 +256,11 @@ export function LandingPage() {
                     version="1.1"
                     id="Layer_1"
                     xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 512 512"
-                    xml:space="preserve">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                    xmlSpace="preserve">
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
 
                     <g id="SVGRepo_iconCarrier">
                       {' '}
@@ -346,7 +338,7 @@ export function LandingPage() {
                 <p className="hidden dark:text-white sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
                   Build your dreams, one home at a time; mortgages tailored to you.
                 </p>
-              </a>
+              </Link>
 
               <a
                 className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
@@ -359,12 +351,11 @@ export function LandingPage() {
                     version="1.1"
                     id="Capa_1"
                     xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 490.766 490.766"
-                    xml:space="preserve">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                    xmlSpace="preserve">
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
 
                     <g id="SVGRepo_iconCarrier">
                       {' '}
@@ -484,7 +475,6 @@ export function LandingPage() {
           </div>
         </div>
       </section>
-      ;
     </>
   );
 }
