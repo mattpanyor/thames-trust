@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useAuthentication } from 'src/hooks';
 
 export function UserMenuToggle({ dropdownRef, isUserMenuOpen, handleUserMenuClick }) {
@@ -37,11 +38,12 @@ export function UserMenuToggle({ dropdownRef, isUserMenuOpen, handleUserMenuClic
         </div>
         <ul className="py-1" role="none">
           <li>
-            <button
+            <Link
+              to="/dashboard"
               className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
               role="menuitem">
               Dashboard
-            </button>
+            </Link>
           </li>
           <li>
             <button
