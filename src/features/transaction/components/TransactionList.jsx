@@ -1,25 +1,46 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   TransactionFilter,
   TransactionListItem,
   TransactionViewFooter
 } from 'src/features/transaction/components';
-import { useTransactionContext } from 'src/hooks';
+import { useAuthentication, useLocalStorage, useTransactionContext } from 'src/hooks';
+
+const filterTransactions = (transactions, userRepository, accountRepository, authentication) => {
+  return transactions.filter((transaction) => {
+    const senderUserId = accountRepository.findById(parseInt(transaction.senderId)).userId;
+    const receiverUserId = accountRepository.findById(parseInt(transaction.receiverId)).userId;
+    const authenticatedUserId = authentication.getAuthenticatedUserId();
+    return (
+      userRepository.findById(senderUserId).id === authenticatedUserId ||
+      userRepository.findById(receiverUserId).id === authenticatedUserId
+    );
+  });
+};
 
 export function TransactionList() {
+  const { authentication } = useAuthentication();
+  const { userRepository, accountRepository } = useLocalStorage();
+
   const transactionPerPage = 6; // Transactions per page.
 
   const [currentPage, setCurrentPage] = useState(0);
   const [transactionView, setTransactionView] = useState([]);
 
-  const { transactions, setTransactions } = useTransactionContext();
+  const { transactions } = useTransactionContext();
+
+  const filteredTransactions = useMemo(() => {
+    return filterTransactions(transactions, userRepository, accountRepository, authentication);
+  }, [transactions, userRepository, accountRepository, authentication]);
 
   useEffect(() => {
     const startIndex = currentPage * transactionPerPage;
     const endIndex = startIndex + transactionPerPage;
-    const slicedTransactions = transactions.slice(startIndex, endIndex);
+
+    const slicedTransactions = filteredTransactions.slice(startIndex, endIndex);
+
     setTransactionView(slicedTransactions);
-  }, [transactions, currentPage]);
+  }, [currentPage, filteredTransactions, transactionPerPage]);
 
   const changePage = (pageNumber) => {
     if (pageNumber >= 0 && pageNumber < Math.ceil(transactions.length / transactionPerPage)) {
@@ -91,7 +112,7 @@ export function TransactionList() {
             pageChange={changePage}
             currentPage={currentPage}
             transactionPerPage={transactionPerPage}
-            totalTransactions={transactions.length}
+            totalTransactions={filteredTransactions.length}
           />
         </div>
       </div>
