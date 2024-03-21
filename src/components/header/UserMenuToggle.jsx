@@ -1,14 +1,12 @@
-import { useNavigate } from 'react-router-dom';
 import { useAuthentication } from 'src/hooks';
 
 export function UserMenuToggle({ dropdownRef, isUserMenuOpen, handleUserMenuClick }) {
   const { authentication } = useAuthentication();
-  const navigate = useNavigate();
   const authenticatedUser = authentication.getAuthenticatedUser();
 
   const handleLogOut = () => {
     authentication.logout();
-    navigate('/');
+    window.location.href = '/';
   };
   return (
     <>
