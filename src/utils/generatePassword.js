@@ -1,7 +1,4 @@
-const generatePassword = (e) => {
-  e.preventDefault();
-  console.log('clicked');
-  // Array of special characters to be included in password
+export function generatePassword() {
   const allCharacters = [
     '@',
     '%',
@@ -90,18 +87,12 @@ const generatePassword = (e) => {
     'Z'
   ];
   let password = '';
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i <= 10; i++) {
     password += getRandom(allCharacters);
   }
-  // input into textboxes
-  const passwordInput = document.getElementById('password');
-  passwordInput.value = password;
-  const passwordInput2 = document.getElementById('confirm-password');
-  passwordInput2.value = password;
-};
+  return password;
+}
 function getRandom(arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
-
-export default generatePassword;

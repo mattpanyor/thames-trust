@@ -8,11 +8,11 @@ import { sleep } from 'src/utils';
 
 export function LoginForm() {
   const navigate = useNavigate();
-  const [loginFormData, setLoginFormData] = useState({ email: '', password: '' });
+  const [loginFormData, setLoginFormData] = useState(new LoginFormDTO());
   const { authentication } = useAuthentication();
   const [isDisabled, setDisabled] = useState(true);
   const [isPending, setIsPending] = useState(false);
-  const [validationStyle, setValidationStyle] = useState(new LoginFormDTO());
+  const [validationStyle, setValidationStyle] = useState('');
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;

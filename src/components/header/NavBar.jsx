@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   AppLogo,
   MobileSearchToggle,
@@ -8,13 +8,13 @@ import {
   UserMenuToggle
 } from 'src/components/header';
 import { ThemeSwitcher } from 'src/components/utils';
-import { useClickOutside } from 'src/hooks';
+import { useAuthentication, useClickOutside } from 'src/hooks';
 
 export function NavBar({ toggleSidebarMobile, setToggleSidebarMobile }) {
   const dropdownRef = useRef(null);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
-
+  const { authentication } = useAuthentication();
   useClickOutside(dropdownRef, setIsUserMenuOpen, setIsNotificationsOpen);
 
   const handleUserMenuClick = (e) => {
@@ -50,13 +50,15 @@ export function NavBar({ toggleSidebarMobile, setToggleSidebarMobile }) {
                 handleNotificationPanelClick={handleNotificationPanelClick}
               />
               <ThemeSwitcher />
-              <div className="relative ml-3 flex items-center">
-                <UserMenuToggle
-                  dropdownRef={dropdownRef}
-                  isUserMenuOpen={isUserMenuOpen}
-                  handleUserMenuClick={handleUserMenuClick}
-                />
-              </div>
+              {authentication.getAuthenticationToken() && (
+                <div className="relative ml-3 flex items-center">
+                  <UserMenuToggle
+                    dropdownRef={dropdownRef}
+                    isUserMenuOpen={isUserMenuOpen}
+                    handleUserMenuClick={handleUserMenuClick}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
