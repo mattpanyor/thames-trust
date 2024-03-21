@@ -8,6 +8,7 @@ export { DropdownOptionIcon } from './DropdownOptionIcon.jsx';
 export { GitHubIcon } from './GitHubIcon.jsx';
 export { InfoIcon } from './InfoIcon.jsx';
 export { LinkedinIcon } from './LinkedinIcon.jsx';
+export { PasswordGenerateIcon } from './PasswordGenerateIcon.jsx';
 export { SearchIcon } from './SearchIcon.jsx';
 export { SettingsIcon } from './SettingsIcon.jsx';
 export { StatementsIcon } from './StatementsIcon.jsx';
