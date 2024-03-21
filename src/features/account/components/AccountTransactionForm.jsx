@@ -48,7 +48,10 @@ export function AccountTransactionForm({
 
   const handleOnChange = (e) => {
     setIsTransactionValid('');
-    const { name, value } = e.target;
+    let { name, value } = e.target;
+    if (name === 'amount' && value <= 0) {
+      value = '';
+    }
     setPaymentFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value
@@ -66,7 +69,7 @@ export function AccountTransactionForm({
         paymentFormData.senderId,
         paymentFormData.receiverId,
         paymentFormData.reference,
-        authenticatedUserId === paymentFormData.senderId
+        authenticatedUserId === paymentFormData.receiverId
           ? paymentFormData.amount
           : -Math.abs(parseFloat(paymentFormData.amount))
       )
@@ -170,6 +173,7 @@ export function AccountTransactionForm({
                 type="number"
                 name="amount"
                 id="amount"
+                value={paymentFormData.amount}
                 className="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
                 placeholder="£0.00"
                 required

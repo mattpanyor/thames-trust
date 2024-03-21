@@ -9,8 +9,6 @@ export function useRedirectIfNotAuthenticated() {
   useEffect(() => {
     if (!authentication.getAuthenticationToken()) {
       navigate('/login');
-    } else {
-      navigate('/');
     }
   }, [authentication, navigate]);
 }

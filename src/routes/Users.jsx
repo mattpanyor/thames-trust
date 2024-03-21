@@ -1,10 +1,8 @@
-import { useLocalStorage, useUserContext } from 'src/hooks';
+import { useRedirectIfNotAuthenticated } from 'src/hooks';
 import { NavbarSidebarLayout } from 'src/layouts';
 
 export function Users() {
-  const { userRepository } = useLocalStorage();
-  const { users, setUsers } = useUserContext();
-
+  useRedirectIfNotAuthenticated();
   return (
     <>
       <NavbarSidebarLayout>

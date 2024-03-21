@@ -15,6 +15,7 @@ The deployed application is available at [https://thames-trust.netlify.app/](htt
 * [Usage](#usage)
 * [Features](#features)
 * [Limitations](#limitations)
+* [Contributors](#contributors)
 * [Credit](#credit)
 * [License](#license)
 
@@ -61,6 +62,7 @@ The app is a Vite React application. Run `npm i` and then `npm run dev` to run i
 * The app implements user registration and supports form validation
 * The app implements multiple use of useContext() in React to create contexts for each individual features. It accesses these contexts via custom hooks such as `useAccountContext`, `useUserContext`, `useTransactionContext`
 * The app implements multiple customs hooks.
+* The app uses React Router and layouts
 * The app uses CSS components from the Flowbite library and Flowbite Admin Dashboard but implements its own logic to control interactive elements programmatically
 * The app has internal APIs/Methods to work with localStorage, implement authentication, and manage contexts. It borrows the naming convention from Spring Framework.
     * **[Entity Persistence Class](src/classes/EntityPersistence.js)**:
@@ -105,6 +107,13 @@ The app is a Vite React application. Run `npm i` and then `npm run dev` to run i
             * `ModalDrawerContext`: Sets states for modal and provides `isDrawerOpen` and `setIsDrawerOpen` variable via `useModalDrawerContext` hook.
 ## Limitations
 * The app currently does not utilise statements, and settings routes
+##  Contributors
+* [Becky Webster](https://github.com/bweb85)
+* [Mate Panyor](https://github.com/mattpanyor)
+* [Muhammet Keles](https://github.com/JBraddockm)
+* [Prangchira Kewcharoenwong](https://github.com/prangchira)
+* [Sameerah Khalid](https://github.com/The-real-sammy)
+
 ## Credit
 * App logo is from [SVG Repo](https://www.svgrepo.com/svg/429650/bank-business-tools-piggy-2)
 ## License

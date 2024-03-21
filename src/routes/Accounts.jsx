@@ -1,7 +1,9 @@
 import { AccountList } from 'src/features/account/components';
+import { useRedirectIfNotAuthenticated } from 'src/hooks/index.js';
 import { NavbarSidebarLayout } from 'src/layouts';
 
 export function Accounts() {
+  useRedirectIfNotAuthenticated();
   return (
     <>
       <NavbarSidebarLayout>

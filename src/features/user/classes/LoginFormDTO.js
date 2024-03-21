@@ -1,8 +1,8 @@
-class LostPasswordFormDTO {
+class LoginFormDTO {
   constructor(email = '', password = '') {
     this.email = email;
     this.password = password;
   }
 }
 
-export default LostPasswordFormDTO;
+export default LoginFormDTO;
