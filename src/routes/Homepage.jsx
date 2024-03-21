@@ -1,4 +1,4 @@
-import { LandingPage } from 'src/features/homepage/LandingPage';
+import { LandingPage } from 'src/features/homepage/components/LandingPage';
 import { NavbarFullWidthLayout } from 'src/layouts';
 
 export function Homepage() {

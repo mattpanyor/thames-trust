@@ -19,10 +19,12 @@ export function LandingPage() {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link
                 to={'/login'}
-                className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto">
+                className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-gray-500 focus:outline-none focus:ring active:text-opacity-75 sm:w-auto">
                 Log In
               </Link>
-              <Link className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-gray-500 hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 dark:text-white sm:w-auto">
+              <Link
+                to={'/sign-up'}
+                className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-gray-500 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring active:bg-blue-500 dark:text-white sm:w-auto">
                 Register
               </Link>
             </div>
@@ -413,25 +415,9 @@ export function LandingPage() {
                 <li>
                   <a href="#" className="group block">
                     <img
-                      src="https://assets-global.website-files.com/6544fcf8a7afe272f64776fe/65a79f7d52f27f4c677411bd_QS3bhX1cnscjLKluPMRMpzInkBnb7L0z89ZYzFAQEPc.png"
-                      alt="advanced security"
-                      className="aspect-square w-full rounded object-cover"
-                    />
-                    <div className="mt-3">
-                      <h3 className="font-medium text-gray-500 dark:text-white">
-                        Advanced Security
-                      </h3>
-                    </div>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#" className="group block">
-                    <img
                       src="https://omnio.global/wp-content/uploads/2022/06/shutterstock_1928122490-1440x823.jpg"
-                      className="attachment-post-thumbnail size-post-thumbnail wp-post-image"
-                      alt="banking"
-                      className="w-full rounded object-cover"></img>
+                      className="attachment-post-thumbnail size-post-thumbnail wp-post-image aspect-square w-full rounded object-cover"
+                      alt="banking"></img>
 
                     <div className="mt-3">
                       <h3 className="font-medium text-gray-500 dark:text-white">
@@ -440,6 +426,17 @@ export function LandingPage() {
                     </div>
                   </a>
                 </li>
+                <a href="#" className="group block">
+                  <img
+                    src="https://assets-global.website-files.com/6544fcf8a7afe272f64776fe/65a79f7d52f27f4c677411bd_QS3bhX1cnscjLKluPMRMpzInkBnb7L0z89ZYzFAQEPc.png"
+                    alt="advanced security"
+                    className="aspect-square w-full rounded object-cover"
+                  />
+                  <div className="mt-3">
+                    <h3 className="font-medium text-gray-500 dark:text-white">Advanced Security</h3>
+                  </div>
+                </a>
+                <li></li>
               </ul>
             </div>
           </div>
