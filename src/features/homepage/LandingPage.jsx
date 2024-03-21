@@ -429,7 +429,7 @@ export function LandingPage() {
                   <a href="#" className="group block">
                     <img
                       src="https://omnio.global/wp-content/uploads/2022/06/shutterstock_1928122490-1440x823.jpg"
-                      class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                      className="attachment-post-thumbnail size-post-thumbnail wp-post-image"
                       alt="banking"
                       className="w-full rounded object-cover"></img>
 
@@ -445,48 +445,41 @@ export function LandingPage() {
           </div>
         </div>
       </section>
-      <section class="bg-grey dark:bg-gray-900">
-        <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
-          <div class="mx-auto max-w-3xl text-center">
-            <h2 class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-4xl">
+      <section className="bg-grey dark:bg-gray-900">
+        <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-4xl">
               Trusted by Savers Worldwide
             </h2>
-
-            <p class="mt-4 text-gray-500 dark:text-white sm:text-xl">
+            <p className="mt-4 text-gray-500 dark:text-white sm:text-xl">
               Step into a world of financial empowerment with our banking app. From secure
               transactions to cutting-edge features, embark on a journey of confidence and
               convenience, backed by the trust of savers around the globe.
             </p>
           </div>
-
-          <div class="mt-8 sm:mt-12">
-            <dl class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <div class="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center dark:bg-blue-700/25">
-                <dt class="order-last text-lg font-medium text-gray-500 dark:text-white/75">
+          <div className="mt-8 sm:mt-12">
+            <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center dark:bg-blue-700/25">
+                <dt className="order-last text-lg font-medium text-gray-500 dark:text-white/75">
                   Savers
                 </dt>
-
-                <dd class="text-4xl font-extrabold text-blue-600 dark:text-blue-50 md:text-5xl">
+                <dd className="text-4xl font-extrabold text-blue-600 dark:text-blue-50 md:text-5xl">
                   1.2m
                 </dd>
               </div>
-
-              <div class="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center dark:bg-blue-700/25">
-                <dt class="order-last text-lg font-medium text-gray-500 dark:text-white/75">
+              <div className="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center dark:bg-blue-700/25">
+                <dt className="order-last text-lg font-medium text-gray-500 dark:text-white/75">
                   Countries
                 </dt>
-
-                <dd class="text-4xl font-extrabold text-blue-600 dark:text-blue-50 md:text-5xl">
+                <dd className="text-4xl font-extrabold text-blue-600 dark:text-blue-50 md:text-5xl">
                   24
                 </dd>
               </div>
-
-              <div class="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center dark:bg-blue-700/25">
-                <dt class="order-last text-lg font-medium text-gray-500 dark:text-white/75">
+              <div className="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center dark:bg-blue-700/25">
+                <dt className="order-last text-lg font-medium text-gray-500 dark:text-white/75">
                   Offices
                 </dt>
-
-                <dd class="text-4xl font-extrabold text-blue-600 dark:text-blue-50 md:text-5xl">
+                <dd className="text-4xl font-extrabold text-blue-600 dark:text-blue-50 md:text-5xl">
                   8
                 </dd>
               </div>
