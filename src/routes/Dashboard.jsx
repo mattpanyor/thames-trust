@@ -1,6 +1,8 @@
+import { useRedirectIfNotAuthenticated } from 'src/hooks/index.js';
 import { NavbarSidebarLayout } from 'src/layouts';
 
 export function Dashboard() {
+  useRedirectIfNotAuthenticated();
   return (
     <>
       <NavbarSidebarLayout>

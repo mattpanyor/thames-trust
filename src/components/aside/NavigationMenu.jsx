@@ -3,11 +3,11 @@ import { MobileSearchForm } from 'src/components/aside';
 import {
   AccountIcon,
   DashboardIcon,
-  DropdownChevronIcon,
   GitHubIcon,
   SettingsIcon,
-  UserIcon
+  StatementsIcon
 } from 'src/components/SVGs';
+import { TransactionIcon } from 'src/components/SVGs';
 import { cn } from 'src/utils';
 
 export function NavigationMenu({ handleTodoDropdownClick, openDropdownId }) {
@@ -21,7 +21,7 @@ export function NavigationMenu({ handleTodoDropdownClick, openDropdownId }) {
             </li>
             <li>
               <NavLink
-                to="/"
+                to="/dashboard"
                 className={cn(
                   `group flex items-center rounded-lg p-2 text-base text-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700`,
                   ({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')
@@ -29,28 +29,6 @@ export function NavigationMenu({ handleTodoDropdownClick, openDropdownId }) {
                 <DashboardIcon />
                 <span className="ml-3">Dashboard</span>
               </NavLink>
-            </li>
-            <li onClick={(e) => handleTodoDropdownClick(e)} id="dropdown-users">
-              <NavLink
-                to="/users"
-                className={cn(
-                  `group flex w-full items-center rounded-lg p-2 text-base text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700`,
-                  ({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')
-                )}>
-                <UserIcon />
-                <span className="ml-3 flex-1 whitespace-nowrap text-left">Users</span>
-                <DropdownChevronIcon />
-              </NavLink>
-              <ul
-                className={`${openDropdownId !== 'dropdown-users' ? 'hidden' : 'block'} space-y-2 py-2`}>
-                <li>
-                  <a
-                    href="#"
-                    className="group flex items-center rounded-lg p-2 pl-11 text-base text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
-                    Add User
-                  </a>
-                </li>
-              </ul>
             </li>
             <li onClick={(e) => handleTodoDropdownClick(e)} id="dropdown-accounts">
               <NavLink
@@ -70,7 +48,7 @@ export function NavigationMenu({ handleTodoDropdownClick, openDropdownId }) {
                   `group flex items-center rounded-lg p-2 text-base text-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700`,
                   ({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')
                 )}>
-                <DashboardIcon />
+                <TransactionIcon />
                 <span className="ml-3">Transactions</span>
               </NavLink>
             </li>
@@ -81,7 +59,7 @@ export function NavigationMenu({ handleTodoDropdownClick, openDropdownId }) {
                   `group flex items-center rounded-lg p-2 text-base text-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700`,
                   ({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'active' : '')
                 )}>
-                <DashboardIcon />
+                <StatementsIcon />
                 <span className="ml-3">Statements</span>
               </NavLink>
             </li>
@@ -105,7 +83,7 @@ export function NavigationMenu({ handleTodoDropdownClick, openDropdownId }) {
               target="_blank"
               className="group flex items-center rounded-lg p-2 text-base text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
               <GitHubIcon
-                className={` flex-shrink-0 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white`}
+                className={`flex-shrink-0 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white`}
               />
               <span className="ml-3">GitHub Repository</span>
             </a>
