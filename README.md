@@ -6,6 +6,8 @@ Thames Trust is a React application that simulates an online banking, which is t
 
 ## Deployed Application
 
+![Thames Trust banking application](thames-trust-banking-app.png)
+
 The deployed application is available at [https://thames-trust.netlify.app/](https://thames-trust.netlify.app/).
 
 ## Table of Contents
