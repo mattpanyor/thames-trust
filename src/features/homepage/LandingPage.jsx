@@ -1,7 +1,6 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export function LandingPage() {
-  const navigate = useNavigate();
   return (
     <>
       <section className="bg-grey dark:bg-gray-900">
@@ -18,21 +17,14 @@ export function LandingPage() {
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
-                className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-                onClick={() => {
-                  navigate('/Login');
-                }}>
+              <Link
+                to={'/login'}
+                className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto">
                 Log In
-              </a>
-
-              <a
-                className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-gray-500 hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 dark:text-white sm:w-auto"
-                onClick={() => {
-                  navigate('/sign-up');
-                }}>
+              </Link>
+              <Link className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-gray-500 hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 dark:text-white sm:w-auto">
                 Register
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -45,19 +37,16 @@ export function LandingPage() {
                 Our Products
               </h2>
 
-              <p className="text-gray-500 sm:text-xl/relaxed mx-auto mt-4 max-w-xl dark:text-white">
+              <p className="mx-auto mt-4 max-w-xl text-gray-500 dark:text-white sm:text-xl/relaxed">
                 Explore how we can assist you with current accounts, mortgages, insurance, loans,
                 credit cards, and savings accounts.
               </p>
 
-              <button
-                className="mt-8 inline-block rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring focus:ring-yellow-400"
-                onClick={() => {
-                  navigate('/Login');
-                }}>
-                {' '}
+              <Link
+                to={'/login'}
+                className="mt-8 inline-block rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring focus:ring-yellow-400">
                 Get Started Today
-              </button>
+              </Link>
             </div>
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
@@ -411,14 +400,11 @@ export function LandingPage() {
                   </p>
                 </header>
 
-                <button
+                <a
                   className="mt-8 inline-block rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring focus:ring-yellow-400"
-                  onClick={() => {
-                    navigate('/Login');
-                  }}>
-                  {' '}
+                  href="#">
                   Discover
-                </button>
+                </a>
               </div>
             </div>
 
