@@ -5,7 +5,7 @@
     "senderId": 1,
     "receiverId": 3,
     "reference": "Bonus",
-    "amount": -2125,
+    "amount": 2125,
     "transactionDate": 1670584800000
   },
   {
@@ -23,7 +23,7 @@
     "senderId": 1,
     "receiverId": 4,
     "reference": "Expense",
-    "amount": -1503,
+    "amount": 1503,
     "transactionDate": 1670234400000
   },
   {
@@ -41,7 +41,7 @@
     "senderId": 1,
     "receiverId": 4,
     "reference": "Salary",
-    "amount": -3109,
+    "amount": 3109,
     "transactionDate": 1677223200000
   },
   {
@@ -59,7 +59,7 @@
     "senderId": 1,
     "receiverId": 4,
     "reference": "Bonus",
-    "amount": -2487,
+    "amount": 2487,
     "transactionDate": 1679181600000
   },
   {
@@ -77,7 +77,7 @@
     "senderId": 1,
     "receiverId": 4,
     "reference": "Refund",
-    "amount": -3240,
+    "amount": 3240,
     "transactionDate": 1679964000000
   },
   {
@@ -95,7 +95,7 @@
     "senderId": 4,
     "receiverId": 1,
     "reference": "Incentive",
-    "amount": -2127,
+    "amount": 2127,
     "transactionDate": 1678855200000
   },
   {
@@ -113,7 +113,7 @@
     "senderId": 4,
     "receiverId": 1,
     "reference": "Allowance",
-    "amount": -2356,
+    "amount": 2356,
     "transactionDate": 1674516000000
   },
   {
@@ -131,7 +131,7 @@
     "senderId": 4,
     "receiverId": 2,
     "reference": "Grant",
-    "amount": -3067,
+    "amount": 3067,
     "transactionDate": 1674069600000
   }
 ]

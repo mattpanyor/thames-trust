@@ -1,7 +1,8 @@
-import { useLocalStorage } from 'src/hooks';
+import { useAuthentication, useLocalStorage } from 'src/hooks';
 import { cn } from 'src/utils';
 
 export function TransactionListItem({ transaction }) {
+  const { authentication } = useAuthentication();
   const { userRepository, accountRepository } = useLocalStorage();
 
   const sender = userRepository.findById(
@@ -12,8 +13,8 @@ export function TransactionListItem({ transaction }) {
     accountRepository.findById(parseInt(transaction.receiverId)).userId
   );
 
-  const isTransactionOutgoing = (amount) => {
-    return amount < 0;
+  const isTransactionOutgoing = () => {
+    return authentication.getAuthenticatedUserId() !== receiver.id;
   };
 
   return (
@@ -21,16 +22,14 @@ export function TransactionListItem({ transaction }) {
       <td className="whitespace-nowrap p-4 text-sm font-normal text-gray-900 dark:text-white">
         {isTransactionOutgoing(transaction.amount) ? 'Payment to ' : 'Payment from '}
         <span className="font-semibold">
-          {isTransactionOutgoing(transaction.amount)
+          {isTransactionOutgoing()
             ? `${receiver.firstName} ${receiver.lastName}`
             : `${sender.firstName} ${sender.lastName}`}
         </span>
       </td>
       <td className={`whitespace-nowrap p-4 text-sm font-semibold text-gray-900 dark:text-white`}>
-        {isTransactionOutgoing(transaction.amount) ? (
-          <span className="text-red-800 dark:text-red-400">
-            -£{(transaction.amount * -1).toFixed(2)}
-          </span>
+        {isTransactionOutgoing() ? (
+          <span className="text-red-800 dark:text-red-400">-£{transaction.amount.toFixed(2)}</span>
         ) : (
           <span className="text-green-800 dark:border-green-500 dark:text-green-400">
             +£{transaction.amount.toFixed(2)}
@@ -52,12 +51,12 @@ export function TransactionListItem({ transaction }) {
             `mr-2 rounded-md border border-red-100 bg-red-100 px-2.5 py-0.5 text-xs font-medium`,
             {
               'border-red-100 bg-red-100 text-red-800 dark:border-red-500 dark:bg-gray-700 dark:text-red-400':
-                isTransactionOutgoing(transaction.amount),
+                isTransactionOutgoing(),
               'border-green-100 bg-green-100 text-green-800 dark:border-green-500 dark:bg-gray-700 dark:text-green-400':
-                !isTransactionOutgoing(transaction.amount)
+                !isTransactionOutgoing()
             }
           )}>
-          {isTransactionOutgoing(transaction.amount) ? 'Outgoing' : 'Incoming'}
+          {isTransactionOutgoing() ? 'Outgoing' : 'Incoming'}
         </span>
       </td>
     </tr>
