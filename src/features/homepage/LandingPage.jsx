@@ -1,7 +1,6 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export function LandingPage() {
-  const navigate = useNavigate();
   return (
     <>
       <section className="bg-grey dark:bg-gray-900">
@@ -18,21 +17,14 @@ export function LandingPage() {
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
-                className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-                onClick={() => {
-                  navigate('/Login');
-                }}>
+              <Link
+                to={'/login'}
+                className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto">
                 Log In
-              </a>
-
-              <a
-                className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-gray-500 hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 dark:text-white sm:w-auto"
-                onClick={() => {
-                  navigate('/sign-up');
-                }}>
+              </Link>
+              <Link className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-gray-500 hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 dark:text-white sm:w-auto">
                 Register
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -45,19 +37,16 @@ export function LandingPage() {
                 Our Products
               </h2>
 
-              <p className="text-gray-500 sm:text-xl/relaxed mx-auto mt-4 max-w-xl dark:text-white">
+              <p className="mx-auto mt-4 max-w-xl text-gray-500 dark:text-white sm:text-xl/relaxed">
                 Explore how we can assist you with current accounts, mortgages, insurance, loans,
                 credit cards, and savings accounts.
               </p>
 
-              <button
-                className="mt-8 inline-block rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring focus:ring-yellow-400"
-                onClick={() => {
-                  navigate('/Login');
-                }}>
-                {' '}
+              <Link
+                to={'/login'}
+                className="mt-8 inline-block rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring focus:ring-yellow-400">
                 Get Started Today
-              </button>
+              </Link>
             </div>
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
@@ -411,14 +400,11 @@ export function LandingPage() {
                   </p>
                 </header>
 
-                <button
+                <a
                   className="mt-8 inline-block rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring focus:ring-yellow-400"
-                  onClick={() => {
-                    navigate('/Login');
-                  }}>
-                  {' '}
+                  href="#">
                   Discover
-                </button>
+                </a>
               </div>
             </div>
 
@@ -443,7 +429,7 @@ export function LandingPage() {
                   <a href="#" className="group block">
                     <img
                       src="https://omnio.global/wp-content/uploads/2022/06/shutterstock_1928122490-1440x823.jpg"
-                      class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                      className="attachment-post-thumbnail size-post-thumbnail wp-post-image"
                       alt="banking"
                       className="w-full rounded object-cover"></img>
 
@@ -459,48 +445,41 @@ export function LandingPage() {
           </div>
         </div>
       </section>
-      <section class="bg-grey dark:bg-gray-900">
-        <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
-          <div class="mx-auto max-w-3xl text-center">
-            <h2 class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-4xl">
+      <section className="bg-grey dark:bg-gray-900">
+        <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-4xl">
               Trusted by Savers Worldwide
             </h2>
-
-            <p class="mt-4 text-gray-500 dark:text-white sm:text-xl">
+            <p className="mt-4 text-gray-500 dark:text-white sm:text-xl">
               Step into a world of financial empowerment with our banking app. From secure
               transactions to cutting-edge features, embark on a journey of confidence and
               convenience, backed by the trust of savers around the globe.
             </p>
           </div>
-
-          <div class="mt-8 sm:mt-12">
-            <dl class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <div class="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center dark:bg-blue-700/25">
-                <dt class="order-last text-lg font-medium text-gray-500 dark:text-white/75">
+          <div className="mt-8 sm:mt-12">
+            <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center dark:bg-blue-700/25">
+                <dt className="order-last text-lg font-medium text-gray-500 dark:text-white/75">
                   Savers
                 </dt>
-
-                <dd class="text-4xl font-extrabold text-blue-600 dark:text-blue-50 md:text-5xl">
+                <dd className="text-4xl font-extrabold text-blue-600 dark:text-blue-50 md:text-5xl">
                   1.2m
                 </dd>
               </div>
-
-              <div class="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center dark:bg-blue-700/25">
-                <dt class="order-last text-lg font-medium text-gray-500 dark:text-white/75">
+              <div className="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center dark:bg-blue-700/25">
+                <dt className="order-last text-lg font-medium text-gray-500 dark:text-white/75">
                   Countries
                 </dt>
-
-                <dd class="text-4xl font-extrabold text-blue-600 dark:text-blue-50 md:text-5xl">
+                <dd className="text-4xl font-extrabold text-blue-600 dark:text-blue-50 md:text-5xl">
                   24
                 </dd>
               </div>
-
-              <div class="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center dark:bg-blue-700/25">
-                <dt class="order-last text-lg font-medium text-gray-500 dark:text-white/75">
+              <div className="flex flex-col rounded-lg bg-blue-50 px-4 py-8 text-center dark:bg-blue-700/25">
+                <dt className="order-last text-lg font-medium text-gray-500 dark:text-white/75">
                   Offices
                 </dt>
-
-                <dd class="text-4xl font-extrabold text-blue-600 dark:text-blue-50 md:text-5xl">
+                <dd className="text-4xl font-extrabold text-blue-600 dark:text-blue-50 md:text-5xl">
                   8
                 </dd>
               </div>

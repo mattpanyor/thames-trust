@@ -115,6 +115,6 @@ The app is a Vite React application. Run `npm i` and then `npm run dev` to run i
 * [Sameerah Khalid](https://github.com/The-real-sammy)
 
 ## Credit
-* App logo is from [SVG Repo](https://www.svgrepo.com/svg/429650/bank-business-tools-piggy-2)
+* App logo and Product icons are from [SVG Repo](https://www.svgrepo.com/svg/429650/bank-business-tools-piggy-2)
 ## License
 Please refer to the LICENSE in the repo.
