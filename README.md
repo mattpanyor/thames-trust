@@ -63,6 +63,7 @@ The app is a Vite React application. Run `npm i` and then `npm run dev` to run i
 * The app implements multiple use of useContext() in React to create contexts for each individual features. It accesses these contexts via custom hooks such as `useAccountContext`, `useUserContext`, `useTransactionContext`
 * The app implements multiple customs hooks.
 * The app uses React Router and layouts
+* The app uses useMemo to cache filtered transactions
 * The app uses CSS components from the Flowbite library and Flowbite Admin Dashboard but implements its own logic to control interactive elements programmatically
 * The app has internal APIs/Methods to work with localStorage, implement authentication, and manage contexts. It borrows the naming convention from Spring Framework.
     * **[Entity Persistence Class](src/classes/EntityPersistence.js)**:
@@ -107,6 +108,9 @@ The app is a Vite React application. Run `npm i` and then `npm run dev` to run i
             * `ModalDrawerContext`: Sets states for modal and provides `isDrawerOpen` and `setIsDrawerOpen` variable via `useModalDrawerContext` hook.
 ## Limitations
 * The app currently does not utilise statements, and settings routes
+* The app requires more complex logic to address transaction requirements
+* The app currently does not support displaying transactions by account
+* The app currently sign-out requires a full browser refresh to hide user profile menu
 ##  Contributors
 * [Becky Webster](https://github.com/bweb85)
 * [Mate Panyor](https://github.com/mattpanyor)
@@ -115,6 +119,6 @@ The app is a Vite React application. Run `npm i` and then `npm run dev` to run i
 * [Sameerah Khalid](https://github.com/The-real-sammy)
 
 ## Credit
-* App logo and Product icons are from [SVG Repo](https://www.svgrepo.com/svg/429650/bank-business-tools-piggy-2)
+* App logo, product icons, and other SVGs are from [SVG Repo](https://www.svgrepo.com/svg/429650/bank-business-tools-piggy-2)
 ## License
 Please refer to the LICENSE in the repo.
