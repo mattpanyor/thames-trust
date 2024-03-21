@@ -69,9 +69,7 @@ export function AccountTransactionForm({
         paymentFormData.senderId,
         paymentFormData.receiverId,
         paymentFormData.reference,
-        authenticatedUserId === paymentFormData.receiverId
-          ? paymentFormData.amount
-          : -Math.abs(parseFloat(paymentFormData.amount))
+        parseFloat(paymentFormData.amount)
       )
     );
   }
