@@ -1,6 +1,7 @@
 import { useContext } from 'react';
-import { AccountContext } from 'src/context/index.js';
+import { AccountContext } from 'src/context';
 
+/* Provides custom hook to access AccountContext. */
 export function useAccountContext() {
   const context = useContext(AccountContext);
 

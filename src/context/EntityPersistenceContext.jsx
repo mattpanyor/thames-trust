@@ -4,7 +4,9 @@ import TransactionRepository from 'src/features/transaction/classes/TransactionR
 import UserRepository from 'src/features/user/classes/UserRepository.js';
 
 export const EntityPersistenceContext = createContext(null);
-
+/*
+ * This context instantiate data transfer objects, which are subclasses that extend EntityPersistence.class, and returns the corresponding objects.
+ * */
 export function EntityPersistenceContextProvider({ children }) {
   const userRepository = new UserRepository('users');
   const transactionRepository = new TransactionRepository('transactions');

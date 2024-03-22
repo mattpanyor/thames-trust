@@ -16,6 +16,9 @@ export function AccountCreateForm({ toggleModalVisibility }) {
   const [isChecked, setIsChecked] = useState(false);
   const [selectedAccountType, setSelectedAccountType] = useState(null);
 
+  /*
+   * Disables 'Create' button if an account type is not selected.
+   * */
   useEffect(() => {
     setDisabled(!selectedAccountType);
   }, [selectedAccountType]);
@@ -28,6 +31,9 @@ export function AccountCreateForm({ toggleModalVisibility }) {
     setSelectedAccountType(event.target.value);
   };
 
+  /*
+   * Resets the form to its initial state.
+   * */
   const resetForm = () => {
     setIsPending(false);
     setDisabled(true);
@@ -35,6 +41,9 @@ export function AccountCreateForm({ toggleModalVisibility }) {
     setSelectedAccountType(false);
   };
 
+  /*
+   * Handles form submission. Creates a new account and updates accounts data.
+   * */
   const handleFormSubmit = async () => {
     setIsPending(true);
     await sleep(1000);

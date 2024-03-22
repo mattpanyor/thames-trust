@@ -6,6 +6,9 @@ import {
 } from 'src/features/transaction/components';
 import { useAuthentication, useLocalStorage, useTransactionContext } from 'src/hooks';
 
+/*
+ * Filters transactions based on the authenticated user.
+ * */
 const filterTransactions = (transactions, userRepository, accountRepository, authentication) => {
   return transactions.filter((transaction) => {
     const senderUserId = accountRepository.findById(parseInt(transaction.senderId)).userId;
@@ -29,10 +32,16 @@ export function TransactionList() {
 
   const { transactions } = useTransactionContext();
 
+  /*
+   * Caches the filtered transactions for better performance.
+   * */
   const filteredTransactions = useMemo(() => {
     return filterTransactions(transactions, userRepository, accountRepository, authentication);
   }, [transactions, userRepository, accountRepository, authentication]);
 
+  /*
+   * Sets the logic for pagination in transaction list.
+   * */
   useEffect(() => {
     const startIndex = currentPage * transactionPerPage;
     const endIndex = startIndex + transactionPerPage;
@@ -42,6 +51,9 @@ export function TransactionList() {
     setTransactionView(slicedTransactions);
   }, [currentPage, filteredTransactions, transactionPerPage]);
 
+  /*
+   * Sets page number in pagination.
+   * */
   const changePage = (pageNumber) => {
     if (pageNumber >= 0 && pageNumber < Math.ceil(transactions.length / transactionPerPage)) {
       setCurrentPage(pageNumber);

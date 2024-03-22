@@ -1,5 +1,7 @@
 import { EntityPersistence } from 'src/classes';
-
+/*
+ * Data access object that extends EntityPersistence. It adds more methods to work with Account entity.
+ * */
 class AccountRepository extends EntityPersistence {
   constructor(storageKey) {
     super(storageKey);

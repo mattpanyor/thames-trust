@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button } from 'src/components/elements';
-import PaymentFormDTO from 'src/features/account/classes/PaymentFormDTO.js';
+import TransactionFormDTO from 'src/features/account/classes/TransactionFormDTO.js';
 import Transaction from 'src/features/transaction/classes/Transaction.js';
 import {
   useAccountContext,
@@ -25,14 +25,25 @@ export function AccountTransactionForm({
   const [isPending, setIsPending] = useState(false);
   const [isTransactionValid, setIsTransactionValid] = useState('');
 
-  const [paymentFormData, setPaymentFormData] = useState({
-    ...new PaymentFormDTO(),
+  /*
+   * Initialise transactionFormData with an instance of TransactionFormDTO object.
+   * */
+  const [transactionFormData, setTransactionFormData] = useState({
+    ...new TransactionFormDTO(),
     senderId: initialSendingAccount
   });
 
+  /*
+   * Creates arrays to hold account information based on selected transaction type.
+   * */
   let authenticatedUserAccounts = [];
   let otherUserAccounts = [];
 
+  /*
+   * Filters accounts so that 'payment' is only possible between current accounts
+   * while transfer is only possible between accounts of the authenticated users.
+   * Payment from saver accounts to other users' accounts are not possible.
+   * */
   if (transactionType === 'pay') {
     authenticatedUserAccounts = accounts.filter(
       (account) => account.type === 'Current' && account.userId === authenticatedUserId
@@ -49,27 +60,34 @@ export function AccountTransactionForm({
   const handleOnChange = (e) => {
     setIsTransactionValid('');
     let { name, value } = e.target;
+    /* Prevents setting 'amount' input '0' or a negative value. */
     if (name === 'amount' && value <= 0) {
       value = '';
     }
-    setPaymentFormData((prevFormData) => ({
+    setTransactionFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value
     }));
   };
 
+  /*
+   * Disables submit button until all fields are populated.
+   * */
   useEffect(() => {
-    setDisabled(Object.values(paymentFormData).some((val) => val === ''));
-  }, [paymentFormData]);
+    setDisabled(Object.values(transactionFormData).some((val) => val === ''));
+  }, [transactionFormData]);
 
+  /*
+   * Creates a new transaction object.
+   * */
   async function createNewTransaction() {
     await transactionRepository.create(
       new Transaction(
         stringIdGenerator(15).toUpperCase(),
-        paymentFormData.senderId,
-        paymentFormData.receiverId,
-        paymentFormData.reference,
-        parseFloat(paymentFormData.amount)
+        transactionFormData.senderId,
+        transactionFormData.receiverId,
+        transactionFormData.reference,
+        parseFloat(transactionFormData.amount)
       )
     );
   }
@@ -79,26 +97,43 @@ export function AccountTransactionForm({
     try {
       await sleep(1000);
 
-      const senderAccount = accountRepository.findById(paymentFormData.senderId);
-      const receivingAccount = accountRepository.findById(paymentFormData.receiverId);
+      /*
+       * Finds sender and receiving account.
+       * */
+      const senderAccount = accountRepository.findById(transactionFormData.senderId);
+      const receivingAccount = accountRepository.findById(transactionFormData.receiverId);
 
-      const newSenderBalance = senderAccount.balance - parseFloat(paymentFormData.amount);
-      const newReceivingBalance = receivingAccount.balance + parseFloat(paymentFormData.amount);
+      /*
+       * Sets new balances for retrieved accounts.
+       * */
+      const newSenderBalance = senderAccount.balance - parseFloat(transactionFormData.amount);
+      const newReceivingBalance = receivingAccount.balance + parseFloat(transactionFormData.amount);
 
+      /*
+       * Checks if sending account has enough balance for the transaction.
+       * */
       if (newSenderBalance < 0) {
         throw new Error('Insufficient balance');
       }
 
+      /*
+       * Updates both balances.
+       * */
       await Promise.all([
         accountRepository.updateBalance(senderAccount.id, newSenderBalance),
         accountRepository.updateBalance(receivingAccount.id, newReceivingBalance)
       ]);
 
+      /* Sets accounts */
       setAccounts(accountRepository.findAll());
+      /* Creates new transaction */
       await createNewTransaction();
+      /* Sets transactions */
       setTransactions(transactionRepository.findAll());
+      /* Closes modal */
       toggleModalVisibility();
     } catch (error) {
+      /* Resets states on insufficient fund or any other errors. */
       console.error('Error making transaction:', error);
       setIsPending(false);
       setDisabled(true);
@@ -171,7 +206,7 @@ export function AccountTransactionForm({
                 type="number"
                 name="amount"
                 id="amount"
-                value={paymentFormData.amount}
+                value={transactionFormData.amount}
                 className="focus:ring-primary-600 focus:border-primary-600 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
                 placeholder="£0.00"
                 required

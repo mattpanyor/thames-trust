@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { EntityPersistenceContext } from 'src/context';
 
+/* Provides custom hook to access EntityPersistenceContext. */
 export function useLocalStorage() {
   const context = useContext(EntityPersistenceContext);
 

@@ -1,3 +1,6 @@
+/*
+ * Create User entity with default values set for each properties.
+ * */
 class User {
   constructor(firstName = '', lastName = '', emailAddress = '', username = '', password = '') {
     this.firstName = firstName;

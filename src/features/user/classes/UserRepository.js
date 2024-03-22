@@ -1,5 +1,8 @@
 import { EntityPersistence } from 'src/classes';
 
+/*
+ * Data access object that extends EntityPersistence. It adds more methods to work with User entity.
+ * */
 class UserRepository extends EntityPersistence {
   constructor(storageKey) {
     super(storageKey);

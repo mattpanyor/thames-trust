@@ -6,6 +6,7 @@ export function AccountListItem({
   setInitialSendingAccount,
   setTransactionType
 }) {
+  /* Determines transaction type based on Click() */
   const handleButtonClick = (transactionType) => {
     onClick();
     setInitialSendingAccount(account.id);

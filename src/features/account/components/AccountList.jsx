@@ -14,9 +14,14 @@ export function AccountList() {
   const authenticatedUserId = authentication.getAuthenticatedUserId();
 
   const [isDrawerModalOpen, setIsDrawerModalOpen] = useModalDrawerContext();
+
+  /* Sets modal type */
   const [modalType, setModalType] = useState(null);
   const [initialSendingAccount, setInitialSendingAccount] = useState(null);
 
+  /*
+   * Sets transaction type.
+   * */
   const [transactionType, setTransactionType] = useState(null);
 
   const handleModalOpenClick = (type) => {
@@ -24,6 +29,7 @@ export function AccountList() {
     setModalType(type);
   };
 
+  /* Sets modal components */
   const modalComponents = {
     createAccount: <AccountCreateForm toggleModalVisibility={handleModalOpenClick} />,
     transactionForm: (
@@ -68,6 +74,7 @@ export function AccountList() {
           }
         />
       </div>
+      {/* Filters authenticated users' accounts */}
       {accounts
         .filter((account) => account.userId === authenticatedUserId)
         .map((account) => (

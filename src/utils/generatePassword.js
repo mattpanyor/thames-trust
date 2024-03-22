@@ -1,3 +1,4 @@
+/* Generates 10 character password */
 export function generatePassword() {
   const allCharacters = [
     '@',

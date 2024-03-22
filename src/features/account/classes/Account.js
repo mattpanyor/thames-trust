@@ -1,5 +1,7 @@
 import { accountNumberGenerator } from 'src/utils/accountNumberGenerator.js';
-
+/*
+ * Create Account entity with default values set for each properties.
+ * */
 class Account {
   constructor(userId = '', type = '', balance = 0) {
     this.id = null;

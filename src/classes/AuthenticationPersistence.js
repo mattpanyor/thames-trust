@@ -1,8 +1,15 @@
+/*
+ * This class introduces methods to work with sessionStorage.
+ * It expects a persistence token key upon instantiation.
+ * */
 class AuthenticationPersistence {
   constructor(persistenceTokenKey) {
     this.persistenceTokenKey = persistenceTokenKey;
   }
 
+  /*
+   * This methods save the authenticated user to session storage.
+   * */
   saveTokenToSessionStorage(user) {
     try {
       const userSession = new Map();

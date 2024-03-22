@@ -5,14 +5,25 @@ export function TransactionListItem({ transaction }) {
   const { authentication } = useAuthentication();
   const { userRepository, accountRepository } = useLocalStorage();
 
+  /*
+   * Retrieves userID for the sender in transaction.
+   * */
   const sender = userRepository.findById(
     accountRepository.findById(parseInt(transaction.senderId)).userId
   );
 
+  /*
+   * Retrieves userID for the receiver in transaction.
+   * */
   const receiver = userRepository.findById(
     accountRepository.findById(parseInt(transaction.receiverId)).userId
   );
 
+  /*
+   * Determines if transaction is outgoing.
+   * @TODO This should be checked against the sending/receiving account. Transaction is a contextual object.
+   *   Its type can be 'outgoing' for the sending account, but 'incoming' for the receiving account.
+   * */
   const isTransactionOutgoing = () => {
     return authentication.getAuthenticatedUserId() !== receiver.id;
   };

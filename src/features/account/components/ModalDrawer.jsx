@@ -6,6 +6,9 @@ export function ModalDrawer({ isDrawerModalOpen, setIsDrawerModalOpen, content }
     setIsDrawerModalOpen(false);
   };
 
+  /*
+   * Adds 'overflow-hidden' to body to prevent scrolling.
+   * */
   useEffect(() => {
     const handleBodyOverflow = () => {
       document.body.classList.toggle('overflow-hidden', isDrawerModalOpen);

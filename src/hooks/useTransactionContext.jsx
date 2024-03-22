@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { TransactionContext } from 'src/context';
 
+/* Provides custom hook to access TransactionContext. */
 export function useTransactionContext() {
   const context = useContext(TransactionContext);
 

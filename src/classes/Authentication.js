@@ -1,4 +1,10 @@
+/*
+ * This class provides methods to work with the session storage and authentication.
+ * */
 class Authentication {
+  /*
+   * The class expects an instance of Authentication Persistence and a User Repository.
+   * */
   constructor(authenticationPersistence, userRepository) {
     this.authenticationPersistence = authenticationPersistence;
     this.userRepository = userRepository;
