@@ -3,7 +3,9 @@ import transactionData from 'src/data/transaction.json';
 import { useLocalStorage } from 'src/hooks';
 
 export const TransactionContext = createContext(null);
-
+/*
+ * This context uses useLocalStorage() hook to load the initial json data and retrieve data from localStorage on subsequent runs.
+ * */
 export function TransactionContextProvider({ children }) {
   const { transactionRepository } = useLocalStorage();
   const [transactions, setTransactions] = useState([]);

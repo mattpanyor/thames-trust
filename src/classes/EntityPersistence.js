@@ -1,7 +1,15 @@
+/*
+ * This class is the parent classes that introduces methods to work with localStorage.
+ * It expects a storage key upon instantiation.
+ * */
 class EntityPersistence {
   constructor(storageKey) {
     this.storageKey = storageKey;
   }
+  /*
+   * getNextId() methods provides a sequential Id for create() method.
+   * All other CRUD methods expect an entity with an ID.
+   * */
   getNextId() {
     try {
       const entities = this._loadEntities();
@@ -103,6 +111,10 @@ class EntityPersistence {
     }
   }
 
+  /*
+   * The following methods - annotated with '_' are meant to be private methods.
+   * They are for internal use and are not to be used directly.
+   * */
   _saveEntity(entity) {
     try {
       const entities = this._loadEntitiesFromStorage();

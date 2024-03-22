@@ -4,6 +4,9 @@ export function TransactionListControls({ pageChange, currentPage, totalTransact
   const [btnNext, setBtnNext] = useState(false);
   const [btnPrev, setBtnPrev] = useState(false);
 
+  /*
+   * Determines next and previous pages.
+   * */
   useEffect(() => {
     setBtnPrev(currentPage > 0);
     setBtnNext(currentPage < totalTransactions - 1);

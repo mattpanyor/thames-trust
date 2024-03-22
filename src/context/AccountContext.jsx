@@ -2,6 +2,9 @@ import { createContext, useEffect, useState } from 'react';
 import accountData from 'src/data/account.json';
 import { useLocalStorage } from 'src/hooks';
 
+/*
+ * This context uses useLocalStorage() hook to load the initial json data and retrieve data from localStorage on subsequent runs.
+ * */
 export const AccountContext = createContext(null);
 
 export function AccountContextProvider({ children }) {

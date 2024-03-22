@@ -1,3 +1,6 @@
+/*
+ * Create Transaction entity.
+ * */
 class Transaction {
   constructor(transactionId, senderId, receiverId, reference, amount) {
     this.transactionId = transactionId;

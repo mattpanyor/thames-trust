@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { ModalDrawerContext } from 'src/context';
 
+/* Provides custom hook to access ModalDrawerContext. */
 export function useModalDrawerContext() {
   const context = useContext(ModalDrawerContext);
 

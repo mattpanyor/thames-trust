@@ -3,6 +3,7 @@ import { Error404Background } from 'src/components/SVGs/Error404Background.jsx';
 import { DropdownChevronIcon } from 'src/components/SVGs/index.js';
 import { FullWidthLayout } from 'src/layouts';
 
+/* Default error page */
 export default function ErrorPage() {
   const error = useRouteError();
   return (

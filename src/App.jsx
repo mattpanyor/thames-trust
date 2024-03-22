@@ -11,16 +11,17 @@ import ErrorPage from 'src/ErrorPage.jsx';
 import {
   Accounts,
   Dashboard,
+  Homepage,
   Login,
   ResetPassword,
   Settings,
   SignUp,
   Statements,
   Transactions,
-  Users,
-  Homepage
+  Users
 } from 'src/routes';
 
+/* Sets app routes */
 const router = createBrowserRouter([
   {
     path: '/',

@@ -3,7 +3,9 @@ import userData from 'src/data/user.json';
 import { useLocalStorage } from 'src/hooks';
 
 export const UserContext = createContext(null);
-
+/*
+ * This context uses useLocalStorage() hook to load the initial json data and retrieve data from localStorage on subsequent runs.
+ * */
 export function UserContextProvider({ children }) {
   const { userRepository } = useLocalStorage();
   const [users, setUsers] = useState([]);

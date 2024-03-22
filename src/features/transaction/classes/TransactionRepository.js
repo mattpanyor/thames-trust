@@ -1,5 +1,7 @@
 import { EntityPersistence } from 'src/classes';
-
+/*
+ * Data access object that extends EntityPersistence. It adds more methods to work with Transaction entity.
+ * */
 class TransactionRepository extends EntityPersistence {
   constructor(storageKey) {
     super(storageKey);

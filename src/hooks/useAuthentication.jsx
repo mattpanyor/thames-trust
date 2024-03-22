@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { AuthenticationPersistenceContext } from 'src/context';
 
+/* Provides custom hook to access AuthenticationPersistenceContext. */
 export function useAuthentication() {
   const context = useContext(AuthenticationPersistenceContext);
 

@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+/* Provides custom hook to close any elements such as dropdown menu. */
+
 export function useClickOutside(ref, ...setOpenFuncs) {
   useEffect(() => {
     const handleClickOutside = (e) => {

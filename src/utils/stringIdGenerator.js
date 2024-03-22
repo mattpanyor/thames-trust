@@ -1,3 +1,4 @@
+/* Generates an stringID in the given size */
 export function stringIdGenerator(size) {
   const allowedCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   let result = '';
